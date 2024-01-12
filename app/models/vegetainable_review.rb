@@ -1,0 +1,2 @@
+class VegetainableReview < ApplicationRecord
+end
