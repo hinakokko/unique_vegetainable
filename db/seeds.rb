@@ -9,6 +9,6 @@
 Admin.create!(
   name: "hina",
   email: "hina@g",
-  password: "aiueo1031"
+  encrypted_password: "aiueo1031"
 )
 
