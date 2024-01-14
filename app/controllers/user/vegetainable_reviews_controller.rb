@@ -19,6 +19,10 @@ class User::VegetainableReviewsController < ApplicationController
     redirect_to vegetainable_reviews_path
   end
 
+  def edit
+    @vegetainable_review = VegetainableReview.find(params[:id])
+  end
+
   private
 
   def vegetainable_review_params

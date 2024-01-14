@@ -9,7 +9,7 @@ get 'users/destroy' => "users#delete"
 
 # ユーザー用
 # URL /users/sign_in ...
-  devise_for :users, skip: [:passwords], controllers: {
+  devise_for :user, skip: [:passwords], controllers: {
   registrations: "user/registrations",
   sessions: 'user/sessions'
 }

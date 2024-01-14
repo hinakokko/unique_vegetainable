@@ -9,24 +9,42 @@
     <script src="https://kit.fontawesome.com/2ff29df84d.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <header>
+      <tabele>
+          <tr>
+            <td>
+              <div class="p-3 m-3 h-50">
+              <%= link_to "ユニークベジティナブル", root_path, class: "border border-2 rounded py-2 px-5 w-50 ml-5 h2" %>
+              </div>
+            </td>
+          </tr>
+    <div class="text-right pr-5">
     <% if user_signed_in? %>
-      <li>
-        <%= link_to '投稿フォーム', new_vegetainable_review_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
+      <tr>
+        <td><%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path %></td>
+      </tr>
+      <tr>
+        <td><%= link_to 'レビューの一覧', vegetainable_reviews_path %></td>
+      </tr>
+      <tr>
+        <td><%= button_to "ログアウト", destroy_user_session_path, method: :delete %></td>
+      </tr>
     <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
+      <tr>
+        <td><%= link_to "新規登録", new_user_registration_path %></td>
+      </tr>
+      <tr>
+        <td><%= link_to "ログイン", new_user_session_path %></td>
+      </tr>
     <% end %>
+    </div>
+      </tabele>
+    </header>
     <%= yield %>
   </body>
+
 </html>
