@@ -59,10 +59,13 @@ ActiveRecord::Schema.define(version: 2024_01_12_130639) do
   create_table "vegetainable_reviews", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
-    t.integer "price", null: false
-    t.string "farmer_name", null: false
-    t.string "shop_name", null: false
-    t.text "caption"
+    t.integer "price"
+    t.string "farmer_name"
+    t.string "shop_name"
+    t.text "caption", null: false
+    t.string "title", null: false
+    t.integer "amount"
+    t.string "area"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

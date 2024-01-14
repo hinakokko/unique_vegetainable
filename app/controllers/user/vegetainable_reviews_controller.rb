@@ -1,7 +1,7 @@
 class User::VegetainableReviewsController < ApplicationController
 
   def new
-    @post_review = PostReview.new
+    @vegetainable_review = VegetainableReview.new
   end
 
 end

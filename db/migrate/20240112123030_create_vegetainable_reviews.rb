@@ -4,10 +4,13 @@ class CreateVegetainableReviews < ActiveRecord::Migration[6.1]
 
       t.integer :user_id, null: false
       t.string :name, null: false
-      t.integer :price, null: false
-      t.string :farmer_name, null: false
-      t.string :shop_name, null: false
-      t.text :caption
+      t.integer :price
+      t.string :farmer_name
+      t.string :shop_name
+      t.text :caption, null: false
+      t.string :title, null: false
+      t.integer :amount
+      t.string :area
 
       t.timestamps
     end
