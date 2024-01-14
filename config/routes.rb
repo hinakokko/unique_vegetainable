@@ -21,8 +21,16 @@ end
 
 scope module: :user do
   root to: 'homes#top'
-  resources :vegetainable_reviews, only: [:index, :new, :show, :edit, :update, :destroy]
-  resources :comments, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :vegetainable_reviews, only: [:index, :new, :show, :create, :edit, :update]
+  delete '/vegetainable_review/:id' => "vegetainable_reviews#destroy", as: 'destroy_vegetainable_review'
+
+  resources :comment, only: [:create, :edit, :update, :destroy]
+
+  get 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'new_favorite'
+  post 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'favorite'
+  get '/vegetainable_review/:id/favorite/:id/edit' => "favorite#edit", as: 'edit_favorite'
+  patch '/vegetainable_review/:id/favorite/:id' => "favorite#update", as: 'update_favorite'
+  delete '/vegetainable_review/:id/favorite/:id' => "favorite#destroy", as: 'destroy_favorite'
 
 end
 

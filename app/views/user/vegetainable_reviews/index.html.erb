@@ -1,0 +1,54 @@
+<div clas="container">
+  <div class="row">
+    <h5 class="mx-auto mb-5 ml-5 alert-secondary p-2 text-center">レビュー投稿一覧</h5>
+
+    <% @vegetainable_reviews.each do |vegetainable_review| %>
+    <div class="col-4 mt-5">
+    <table>
+      <tr>
+        <td><%= image_tag vegetainable_review.image, size: "200x300" %></td>
+      </tr>
+    </table>
+    </div>
+
+      <table class="col-7 mb-3 ml-5 w-100">
+    <tbody>
+      <tr>
+        <td class="border border-3 p-2 w-40">レビュータイトル</td>
+        <td class="border border-3 w-75"><%= vegetainable_review.title %></td>
+      </tr>
+       <tr>
+        <td class="border border-3 p-2">購入した野菜</td>
+        <td class="border border-3"><%= vegetainable_review.name %></td>
+      </tr>
+      <tr>
+        <td class="border border-3 p-2">購入価格</td>
+        <td class="border border-3"><%= vegetainable_review.price %></td>
+      </tr>
+      <tr>
+        <td class="border border-3 p-2">個数</td>
+        <td class="border border-3"><%= vegetainable_review.amount %></td>
+      </tr>
+      <tr>
+        <td class="border border-3 p-2">農家さん</td>
+        <td class="border border-3"><%= vegetainable_review.farmer_name %></td>
+      </tr>
+      <tr>
+        <td class="border border-3 p-2 w-40">購入先</td>
+        <td class="border border-3"><%= vegetainable_review.shop_name %></td>
+      </tr>
+      <tr>
+      <td class="border border-3"><%= vegetainable_review.caption %></td>
+    </tr>
+    </tbody>
+  </table>
+    <tr>
+      <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-primary"%></td>
+    </tr>
+
+  </table>
+
+    <% end %>
+  </div>
+  </div>
+</div>
