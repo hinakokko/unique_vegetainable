@@ -5,12 +5,12 @@
   <h4>*購入した野菜</h4>
   <%= f.text_field :name, placeholder:"*入力必須" %>
   <h4>産地</h4>
-  <%= f.text_field :area %>
+  <%= f.text_field :area, placeholder:"例：〇〇県産" %>
   <h4>購入価格</h4>
-  <%= f.text_field :price %>円
+  <%= f.text_field :price, placeholder:"*1点あたりの購入金額" %>円
   <h4>個数</h4>
-  <%= f.text_field :amount %>個入り
-  <h4>農家さん</h4>
+  <%= f.text_field :amount, placeholder:"*1点あたりの個数" %>個入り
+  <h4>農家</h4>
   <%= f.text_field :farmer_name %>
   <h4>購入先(例：〇〇の道の駅など)</h4>
   <%= f.text_field :shop_name %>

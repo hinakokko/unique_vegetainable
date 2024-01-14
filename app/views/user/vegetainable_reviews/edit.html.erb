@@ -8,13 +8,6 @@
     <body class="m-5">
     <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path(@vegetainable_review) do |f| %>
 
-    <table class="mb-3 pr-5 center-block">
-    <tr>
-      <td><label for="inputImage">画像</label></td>
-      <td><%= f.file_field :image, placeholder: "商品画像", accept: "image/*" %> </td>
-    </tr>
-    </table>
-
     <table class="mt-3">
     <tr>
       <td><label for="inputName">購入した野菜</label></td>
@@ -23,16 +16,51 @@
     </table>
 
     <table class="mt-3">
-      <tr>
-      <td><label for="inputName">レビュー記入欄</label></td>
-      <td><%= f.text_field :text, autofocus: true, id:"inputName", placeholder:"レビュー記入欄" %></td>
+    <tr>
+      <td><label for="inputName">産地</label></td>
+      <td><%= f.text_field :area, autofocus: true, id:"@vegetainable_review", placeholder:"例：〇〇県産" %></td>
+    </tr>
+    </table>
+
+    <table class="mt-3">
+    <tr>
+      <td><label for="inputName">購入価格</label></td>
+      <td><%= f.text_field :price, autofocus: true, id:"@vegetainable_review", placeholder:"1点あたりの購入金額" %>円</td>
+    </tr>
+    </table>
+
+    <table class="mt-3">
+    <tr>
+      <td><label for="inputName">個数</label></td>
+      <td><%= f.text_field :amount, autofocus: true, id:"@vegetainable_review", placeholder:"1点あたりの個数" %></td>
     </tr>
     </table>
 
     <table class="mt-3">
       <tr>
-      <td><label for="inputName">税抜価格</label></td>
-      <td><%= f.text_field :price, autofocus: true, id:"inputName", placeholder:"税抜価格" %>円</td>
+      <td><label for="inputName">農家</label></td>
+      <td><%= f.text_field :farmer_name, autofocus: true, id:"inputName", placeholder:"例：〇〇ファーム" %></td>
+    </tr>
+    </table>
+
+    <table class="mt-3">
+      <tr>
+      <td><label for="inputName">購入先</label></td>
+      <td><%= f.text_field :shop_name, autofocus: true, id:"inputName", placeholder:"例：〇〇の道の駅" %></td>
+    </tr>
+    </table>
+
+    <table class="mb-3 pr-5 center-block">
+    <tr>
+      <td><label for="inputImage">画像</label></td>
+      <td><%= f.file_field :image, placeholder: "商品画像", accept: "image/*" %> </td>
+    </tr>
+    </table>
+
+    <table class="mt-3">
+      <tr>
+      <td><label for="inputName">レビュー記入欄</label></td>
+      <td><%= f.text_area :caption, autofocus: true, id:"inputName", placeholder:"レビュー記入欄" %></td>
     </tr>
     </table>
 

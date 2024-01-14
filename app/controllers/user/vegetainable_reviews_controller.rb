@@ -23,10 +23,16 @@ class User::VegetainableReviewsController < ApplicationController
     @vegetainable_review = VegetainableReview.find(params[:id])
   end
 
+  def update
+    vegetainable_review = VegetainableReview.find(params[:id])
+    vegetainable_review.update(vegetainable_review_params)
+    redirect_to vegetainable_review_path(vegetainable_review.id)
+  end
+
   private
 
   def vegetainable_review_params
-    params.require(:vegetainable_review).permit(:title, :name, :price, :amount, :farmer_name, :shop_name, :image, :caption)
+    params.require(:vegetainable_review).permit(:title, :name, :price, :amount, :farmer_name, :shop_name, :image, :caption, :area)
   end
 
 end
