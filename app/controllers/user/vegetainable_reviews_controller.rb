@@ -4,6 +4,10 @@ class User::VegetainableReviewsController < ApplicationController
     @vegetainable_reviews = VegetainableReview.all
   end
 
+  def show
+    @vegetainable_review = VegetainableReview.find(params[:id])
+  end
+
   def new
     @vegetainable_review = VegetainableReview.new
   end
