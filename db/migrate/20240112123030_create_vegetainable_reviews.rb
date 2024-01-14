@@ -7,6 +7,7 @@ class CreateVegetainableReviews < ActiveRecord::Migration[6.1]
       t.integer :price, null: false
       t.string :farmer_name, null: false
       t.string :shop_name, null: false
+      t.text :caption
 
       t.timestamps
     end

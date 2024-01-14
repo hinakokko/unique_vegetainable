@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.1]
 
        t.integer :user_id, null: false
        t.integer :vegetainable_reviews_id, null: false
-       t.string :content, null: false
+       t.text :content, null: false
 
       t.timestamps
     end

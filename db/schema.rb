@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2024_01_12_130639) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "vegetainable_reviews_id", null: false
-    t.string "content", null: false
+    t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2024_01_12_130639) do
     t.integer "price", null: false
     t.string "farmer_name", null: false
     t.string "shop_name", null: false
+    t.text "caption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
