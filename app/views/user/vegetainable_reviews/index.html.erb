@@ -6,9 +6,13 @@
         <table class="col-4">
             <tr>
                 <th>
-                <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
-                <%= image_tag vegetainable_review.image, size: "100x150" %>
-                <% end %>
+                  <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
+                    <% if vegetainable_review.image.attached? %>
+                    <%= image_tag vegetainable_review.image, size: "170x200" %>
+                    <% else %>
+                    <%= image_tag 'no_image', size: "170x200" %>
+                    <% end %>
+                  <% end %>
                 </th>
             </tr>
         </table>

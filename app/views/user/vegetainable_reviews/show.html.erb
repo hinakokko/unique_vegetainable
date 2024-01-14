@@ -41,15 +41,16 @@
       <td class="border border-3"><%= @vegetainable_review.caption %></td>
     </tr>
     </tbody>
-  </table>
-    <tr>
-      <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-primary"%></td>
-      <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-primary"%></td>
-    </tr>
-
-  </table>
-
+    </table>
     <% end %>
   </div>
+
+    <tr>
+      <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-primary"%></td>
+    </tr>
+    <tr>
+       <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-primary"%></td>
+    </tr>
+
   </div>
 </div>
