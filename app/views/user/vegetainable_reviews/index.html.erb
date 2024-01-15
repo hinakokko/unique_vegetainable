@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row">
+    <div class="col-5">
     <h2 class="p-2 text-center">レビュー投稿一覧</h2>
-       <% @vegetainable_reviews.each do |vegetainable_review| %>
+    </div>
+    </div>
+
+    <div class="row">
+      <% @vegetainable_reviews.each do |vegetainable_review| %>
       <tbody>
         <table class="col-4">
             <tr>
@@ -19,20 +24,21 @@
 
         <table class="col-6">
             <tr>
-              <th class="p-3">レビュータイトル</th>
+              <td class="p-3">レビュータイトル</td>
               <td class="p-3"><%= vegetainable_review.title %></td>
             <tr>
             <tr>
               <td class="p-6 mb-10"><%= vegetainable_review.caption %></td>
             </tr>
         </table>
-        </tbody>
+      </tbody>
 
     <tfooter>
     <tr>
       <td class="m-10"><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-primary"%></td>
     </tr>
     </tfooter>
+    </div>
 
     <% end %>
   </div>

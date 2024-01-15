@@ -1,13 +1,19 @@
 <div clas="container">
   <div class="row">
-    <h2 class="mx-auto mb-10 ml-5 alert-secondary p-2 text-center">レビュー投稿詳細</h2>
+    <div class="col-4">
+    <h4 class="mx-auto mb-10 ml-5 alert-secondary p-2 text-center">レビュー投稿詳細</h4>
+    </div>
+  </div>
 
     <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
-    <div class="col-4 mt-5">
+    <div class="row">
+    <div class="col-10 mt-5">
     <table>
       <tr>
-        <th class="border border-3 p-2">レビュータイトル</th>
-        <td class="border border-3"><%= @vegetainable_review.title %></td>
+        <th class="p-2">レビュータイトル</th>
+      </tr>
+      <tr>
+        <td class="p-2"><%= @vegetainable_review.title %></td>
       </tr>
       <tr>
         <td>
@@ -54,13 +60,18 @@
     </table>
     <% end %>
   </div>
+</div>
 
+<div class="row">
+  <div class="col-10">
     <tr>
       <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-primary"%></td>
     </tr>
     <tr>
        <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-primary"%></td>
     </tr>
+</div>
+</div>
 
   </div>
 </div>
