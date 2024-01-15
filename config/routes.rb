@@ -16,8 +16,12 @@ get 'users/destroy' => "users#delete"
 
 namespace :admin do
   root to: "homes#top"
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  get '/admin/user/:id/vegetainable_review/:id' => "vegetainable_reviews#show", as: 'vegetainable_reviews'
+  delete '/admin/user/:id/vegetainable_review/:id' => "vegetainable_reviews#destroy", as: 'vegetainable_reviews_destroy'
 
 end
+
 
 scope module: :user do
   root to: 'homes#top'

@@ -23,7 +23,14 @@
             </td>
           </tr>
     <div class="text-right pr-5">
-    <% if user_signed_in? %>
+    <% if admin_signed_in? %>
+      <tr>
+        <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "border border-2 rounded p-2 m-3" %></td>
+      </tr>
+      <tr>
+        <td> <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "border border-2 rounded p-2 m-3" %></td>
+      </tr>
+    <% elsif user_signed_in? %>
       <tr>
         <td><%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path %></td>
       </tr>
