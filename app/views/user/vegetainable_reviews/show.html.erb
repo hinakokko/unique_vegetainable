@@ -7,7 +7,7 @@
 
     <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
     <div class="row">
-    <div class="col-10 mt-5">
+    <div class="col-7 mt-5">
     <table>
       <tr>
         <th class="p-2">レビュータイトル</th>
@@ -31,6 +31,8 @@
     </tr>
     </table>
     </div>
+  </div>
+
 
       <table class="col-7 mb-3 ml-5 w-100">
     <tbody>
@@ -63,6 +65,21 @@
     <% end %>
   </div>
 </div>
+
+<% if @vegetainable_review.favorited_by?(current_user) %>
+    <p>
+      <%= link_to vegetainable_review_path(@vegetainable_review), method: :delete do %>
+        ♥<%= @vegetainable_review.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to vegetainable_reviews_path(@vegetainable_review), method: :post do %>
+        ♡<%= @vegetainable_review.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+
 
 <div class="row">
   <div class="col-10">

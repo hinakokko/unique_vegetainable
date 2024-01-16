@@ -31,11 +31,11 @@ scope module: :user do
   resources :comment, only: [:create, :edit, :update, :destroy]
   resource :favorite, only: [:create, :destroy]
 
-  get 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'new_favorite'
-  post 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'favorite'
-  get '/vegetainable_review/:id/favorite/:id/edit' => "favorite#edit", as: 'edit_favorite'
-  patch '/vegetainable_review/:id/favorite/:id' => "favorite#update", as: 'update_favorite'
-  delete '/vegetainable_review/:id/favorite/:id' => "favorite#destroy", as: 'destroy_favorite'
+  # get 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'new_favorite'
+  # post 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'favorite'
+  # get '/vegetainable_review/:id/favorite/:id/edit' => "favorite#edit", as: 'edit_favorite'
+  # patch '/vegetainable_review/:id/favorite/:id' => "favorite#update", as: 'update_favorite'
+  # delete '/vegetainable_review/:id/favorite/:id' => "favorite#destroy", as: 'destroy_favorite'
 
 end
 
