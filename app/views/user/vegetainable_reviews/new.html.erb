@@ -17,9 +17,9 @@
   <p>個数</p>
   <%= f.text_field :amount, placeholder:"*1点あたりの個数", class:"p-2 w-75 mb-4" %>個入り
   <p>農家</p>
-  <%= f.text_field :farmer_name, class:"p-2 w-75 mb-4" %>
-  <p>購入先(例：〇〇の道の駅など)</p>
-  <%= f.text_field :shop_name, class:"p-2 w-75 mb-4" %>
+  <%= f.text_field :farmer_name, placeholder:"例：〇〇ファームなど", class:"p-2 w-75 mb-4" %>
+  <p>購入先</p>
+  <%= f.text_field :shop_name, placeholder:"例：〇〇の道の駅など", class:"p-2 w-75 mb-4" %>
   <p>画像</p>
   <%= f.file_field :image, accept: "image/*", class:"p-2 w-100 mb-4" %>
   <p>レビュー記入欄</p>
