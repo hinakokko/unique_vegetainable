@@ -29,6 +29,7 @@ scope module: :user do
   delete '/vegetainable_review/:id' => "vegetainable_reviews#destroy", as: 'destroy_vegetainable_review'
 
   resources :comment, only: [:create, :edit, :update, :destroy]
+  resource :favorite, only: [:create, :destroy]
 
   get 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'new_favorite'
   post 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'favorite'
