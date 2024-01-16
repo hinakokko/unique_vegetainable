@@ -19,14 +19,16 @@
       <tabele>
           <tr>
             <td>
-              <div class="p-3 m-3 h-50 col-12">
+              <div class="p-3 m-3 col-12">
               <%= link_to "ユニークベジティナブル", root_path, class: "border border-2 rounded py-2 px-5 w-50 ml-5 h2" %>
               </div>
             </td>
           </tr>
+      </table>
+    </header>
 
-    <div class="col-2"></div>
-    <div class="text-right pr-5">
+    <div class="row">
+    <div class="col-12 text-right pr-5">
     <% if admin_signed_in? %>
       <tr>
         <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "border border-2 rounded p-2 m-3" %></td>
@@ -53,9 +55,10 @@
       </tr>
     <% end %>
     </div>
-      </tabele>
-    </header>
     <%= yield %>
+
+  </div>
+
   </body>
   </div>
   </div>

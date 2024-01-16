@@ -25,7 +25,9 @@
           </td>
       </tr>
       <tr>
-      <td class="border border-3"><%= @vegetainable_review.caption %></td>
+      <td class="border border-3"><%= @vegetainable_review.caption %><% @vegetainable_review.tags.each do |tag| %>
+      <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
+      <% end %></td>
     </tr>
     </table>
     </div>

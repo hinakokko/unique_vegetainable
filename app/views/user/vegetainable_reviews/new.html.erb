@@ -1,22 +1,42 @@
-<h2>レビュー投稿フォーム</h2>
+<div class="container">
+  <div class="row">
+  <h5 class="pt-5 pb-5">レビュー投稿フォーム</h5>
+  </div>
+
+<div class="row">
+
 <%= form_with model: @vegetainable_review do |f| %>
-  <h4>*レビュータイトル</h4>
-  <%= f.text_field :title, placeholder:"*入力必須"  %>
-  <h4>*購入した野菜</h4>
-  <%= f.text_field :name, placeholder:"*入力必須" %>
-  <h4>産地</h4>
-  <%= f.text_field :area, placeholder:"例：〇〇県産" %>
-  <h4>購入価格</h4>
-  <%= f.text_field :price, placeholder:"*1点あたりの購入金額" %>円
-  <h4>個数</h4>
-  <%= f.text_field :amount, placeholder:"*1点あたりの個数" %>個入り
-  <h4>農家</h4>
-  <%= f.text_field :farmer_name %>
-  <h4>購入先(例：〇〇の道の駅など)</h4>
-  <%= f.text_field :shop_name %>
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  <h4>*レビュー記入欄</h4>
-  <%= f.text_area :caption, placeholder:"*入力必須" %>
-  <%= f.submit 'レビューを投稿する' %>
+  <p>レビュータイトル</p>
+  <%= f.text_field :title, placeholder:"*入力必須", class:"p-2 w-75 mb-4"  %>
+  <p>購入した野菜</p>
+  <%= f.text_field :name, placeholder:"*入力必須", class:"p-2 w-75 mb-4" %>
+  <p>産地</p>
+  <%= f.text_field :area, placeholder:"例：〇〇県産", class:"p-2 w-75 mb-4" %>
+  <p>購入価格</p>
+  <%= f.text_field :price, placeholder:"*1点あたりの購入金額", class:"p-2 w-75 mb-4" %>円
+  <p>個数</p>
+  <%= f.text_field :amount, placeholder:"*1点あたりの個数", class:"p-2 w-75 mb-4" %>個入り
+  <p>農家</p>
+  <%= f.text_field :farmer_name, class:"p-2 w-75 mb-4" %>
+  <p>購入先(例：〇〇の道の駅など)</p>
+  <%= f.text_field :shop_name, class:"p-2 w-75 mb-4" %>
+  <p>画像</p>
+  <%= f.file_field :image, accept: "image/*", class:"p-2 w-100 mb-4" %>
+  <p>レビュー記入欄</p>
+  <%= f.text_area :caption, placeholder:"*入力必須", class:"p-2 w-100 mb-4" %>
+  <%= f.submit 'レビューを投稿する', class:"p-2 mt-4" %>
+</div>
+
+  <p class="mt-5">タグを登録</p>
+  <div class="check_box p-3 w-50 border mt-4 mb-5">
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+       <%= tag.label do %>
+         <%= tag.check_box %>
+         <%= tag.text %>
+       <% end %>
+   <% end %>
+ </div>
+
 <% end %>
+
+</div>

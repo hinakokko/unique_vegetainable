@@ -1,7 +1,8 @@
 class User::VegetainableReviewsController < ApplicationController
 
   def index
-    @vegetainable_reviews = VegetainableReview.all
+    # @vegetainable_reviews = VegetainableReview.all
+    @vegetainable_reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).vegetainable_reviews : VegetainableReview.all
   end
 
   def show
@@ -32,7 +33,7 @@ class User::VegetainableReviewsController < ApplicationController
   private
 
   def vegetainable_review_params
-    params.require(:vegetainable_review).permit(:title, :name, :price, :amount, :farmer_name, :shop_name, :image, :caption, :area)
+    params.require(:vegetainable_review).permit(:title, :name, :price, :amount, :farmer_name, :shop_name, :image, :caption, :area, tag_ids: [])
   end
 
 end
