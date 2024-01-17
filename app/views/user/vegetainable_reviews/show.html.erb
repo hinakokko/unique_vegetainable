@@ -6,37 +6,55 @@
   </div>
 
 
-  <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
-  <div class="row">
-  <div class="col-12 mt-5">
+<%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
+<div class="row">
+  <div class="col-12">
+    <table class="m-5">
+      <tr>
+          <td class="p-3"><h4><%= @vegetainable_review.title %></h4></td>
+      </tr>
+      <tr>
+          <th></th>
+      </tr>
+      <tr>
+          <td class="p-3"><%= @vegetainable_review.caption %></td>
+      </tr>
+      <tr>
+        <td class="pt-4">
+        <% @vegetainable_review.tags.each do |tag| %>
+        # <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
+        <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
     <table class="m-5">
       <tr>
         <td class="p-5">
+          <!--画像-->
           <% if @vegetainable_review.image.attached? %>
           <%= image_tag @vegetainable_review.image, size: "200x300" %>
           <% else %>
           <%= image_tag 'no_image', size: "170x200" %>
           <% end %>
-
+        <!--いいね機能-->
         <% if @vegetainable_review.favorited_by?(current_user) %>
           <p>
             <%= link_to favorite_path(@vegetainable_review), method: :delete do %>
-            ♥<%= @vegetainable_review.favorites.count %> いいね
+            ♥ <%= @vegetainable_review.favorites.count %> いいね
           <% end %>
           </p>
           <% else %>
           <p>
             <%= link_to favorite_path(@vegetainable_review), method: :post do %>
-            ♡<%= @vegetainable_review.favorites.count %> いいね
+            ♡ <%= @vegetainable_review.favorites.count %> いいね
           <% end %>
           </p>
         <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 mt-5">
-      </tr>
-        <td></td>
          <td class="border border-3 p-3">購入した野菜</td>
          <td class="border border-3 p-3">産地</td>
          <td class="border border-3 p-3">購入価格</td>
@@ -44,7 +62,6 @@
          <td class="border border-3 p-3">農家</td>
          <td class="border border-3 p-3 w-40">購入先</td>
       </tr>
-
       <tr>
         <td></td>
         <td class="border border-3 p-3"><%= @vegetainable_review.name %></td>
@@ -57,37 +74,7 @@
     </div>
   </div>
   </table>
-  <table>
-    <div class="row">
-    <div class="col-5 mt-5">
-        <tr>
-          <th class="font-bold alert-secondary text-center"><h5>レビュータイトル</h5>
-        </tr>
-        <tr>
-          <td class="p-3"><%= @vegetainable_review.title %></td>
-        </tr>
-        <tr>
-          <th></th>
-        </tr>
-        <tr>
-          <td class="p-3"><%= @vegetainable_review.caption %>
-          <% @vegetainable_review.tags.each do |tag| %>
-          <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
-          <% end %>
-          </td>
-        </tr>
-   <% end %>
-
-  </div>
-</div>
-</table>
-
-<div class="container">
-  <div class="row">
-    <div class="col-12 mt-5">
-      <table>
-    <tbody>
-
+<% end %>
 
 
 <div class="row">
