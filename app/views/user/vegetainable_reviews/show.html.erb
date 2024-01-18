@@ -8,33 +8,10 @@
 
 <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
 <div class="row">
-  <div class="col-12">
-    <table class="m-5">
-      <tr>
-          <td class="p-3"><h4><%= @vegetainable_review.title %></h4></td>
-      </tr>
-      <tr>
-          <th></th>
-      </tr>
-      <tr>
-          <td class="p-3"><%= @vegetainable_review.caption %></td>
-      </tr>
-      <tr>
-        <td class="pt-4">
-        <% @vegetainable_review.tags.each do |tag| %>
-        # <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
-        <% end %>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-12">
-    <table class="m-5">
-      <tr>
-        <td class="p-5">
+  <div class="col-5">
+    <table class="m-1">
+    <tr>
+      <td class="p-3">
           <!--画像-->
           <% if @vegetainable_review.image.attached? %>
           <%= image_tag @vegetainable_review.image, size: "200x300" %>
@@ -55,15 +32,53 @@
           <% end %>
           </p>
         <% end %>
-         <td class="border border-3 p-3">購入した野菜</td>
-         <td class="border border-3 p-3">産地</td>
-         <td class="border border-3 p-3">購入価格</td>
-         <td class="border border-3 p-3">個数</td>
-         <td class="border border-3 p-3">農家</td>
-         <td class="border border-3 p-3 w-40">購入先</td>
+      </td>
+    </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-7">
+    <table>
+      <td class="p-1">
+      <tr>
+          <td class="p-3"><h4><%= @vegetainable_review.title %></h4></td>
       </tr>
       <tr>
-        <td></td>
+          <th></th>
+      </tr>
+      <tr>
+          <td class="p-3"><%= @vegetainable_review.caption %></td>
+      </tr>
+      <tr>
+        <td class="pt-4">
+        <% @vegetainable_review.tags.each do |tag| %>
+        # <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
+        <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+    </table>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12">
+    <table class="m-1">
+      <tr>
+         <th class="border border-3 p-3">購入した野菜</th>
+         <th class="border border-3 p-3">産地</th>
+         <th class="border border-3 p-3">購入価格</th>
+         <th class="border border-3 p-3">個数</th>
+         <th class="border border-3 p-3">農家</th>
+         <th class="border border-3 p-3 w-40">購入先</th>
+      </tr>
+      <tr>
         <td class="border border-3 p-3"><%= @vegetainable_review.name %></td>
         <td class="border border-3 p-3"><%= @vegetainable_review.area %></td>
         <td class="border border-3 p-3"><%= @vegetainable_review.price %>円</td>
