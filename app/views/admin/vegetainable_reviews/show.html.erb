@@ -20,20 +20,7 @@
           <% else %>
           <%= image_tag 'no_image', size: "170x200" %>
           <% end %>
-        <!--いいね機能-->
-        <% if @vegetainable_review.favorited_by?(current_user) %>
-          <p class="p-3">
-            <%= link_to favorite_path(@vegetainable_review), method: :delete do %>
-            ♥ <%= @vegetainable_review.favorites.count %> いいね
-          <% end %>
-          </p>
-          <% else %>
-          <p class="p-3">
-            <%= link_to favorite_path(@vegetainable_review), method: :post do %>
-            ♡ <%= @vegetainable_review.favorites.count %> いいね
-          <% end %>
-          </p>
-        <% end %>
+
       </td>
     </tr>
     </table>
@@ -93,21 +80,11 @@
   </table>
 <% end %>
 
-
-<div class="row">
-  <div class="col-12 mt-4">
-    <tr>
-      <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-primary p-2 mt-4"%></td>
-    </tr>
-  </div>
-</div>
 <div class="row">
   <div class="col-12 mt-2 mb-5">
     <tr>
        <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-primary p-2 mt-4"%></td>
     </tr>
+  </div>
 </div>
-</div>
-
-
 </div>

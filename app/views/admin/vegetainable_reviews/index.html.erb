@@ -1,0 +1,36 @@
+<div clas="container">
+  <div class="row">
+    <div class="col-12">
+      <table>
+      <h4>ユーザーレビュー投稿一覧</h4>
+      </table>
+    </div>
+
+<% @vegetainable_reviews.each do |vegetainable_review| %>
+  <div class="row">
+    <div class="col-12">
+      <table class="m-3">
+        <tr>
+          <td>
+            <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
+              <% if vegetainable_review.image.attached? %>
+              <%= image_tag vegetainable_review.image, size: "170x200" %>
+              <% else %>
+              <%= image_tag 'no_image', size: "170x200" %>
+              <% end %>
+            <% end %>
+            </td>
+        </tr>
+
+        <tr>
+          <td class="pt-2 pb-2 px-3"><h4><%= @vegetainable_review.title %></h4></td>
+        </tr>
+
+
+      </table>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
