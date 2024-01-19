@@ -30,6 +30,12 @@ class User::VegetainableReviewsController < ApplicationController
     redirect_to vegetainable_review_path(vegetainable_review.id)
   end
 
+  def destroy
+    @vegetainable_review = VegetainableReview.find(params[:id])
+    @vegetainable_review.destroy
+    redirect_to vegetainable_reviews_path
+  end
+
   private
 
   def vegetainable_review_params

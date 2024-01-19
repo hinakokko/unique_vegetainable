@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-  <h5 class="pt-5 pb-5">レビュー投稿フォーム</h5>
+  <h4 class="pt-5 pb-5">レビュー投稿フォーム</h4>
   </div>
 
 <div class="row">
-
+<div class="col-6">
 <%= form_with model: @vegetainable_review do |f| %>
   <p>レビュータイトル</p>
   <%= f.text_field :title, placeholder:"*入力必須", class:"p-2 w-75 mb-4"  %>
@@ -24,10 +24,11 @@
   <%= f.file_field :image, accept: "image/*", class:"p-2 w-100 mb-4" %>
   <p>レビュー記入欄</p>
   <%= f.text_area :caption, placeholder:"*入力必須", class:"p-2 w-100 mb-4" %>
-  <%= f.submit 'レビューを投稿する', class:"p-2 mt-4" %>
-</div>
+ </div>
 
-  <p class="mt-5">タグを登録</p>
+<div class="row">
+<div class="col-12 m-3">
+  <p>タグを登録</p>
   <div class="check_box p-3 w-50 border mt-4 mb-5">
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
        <%= tag.label do %>
@@ -35,8 +36,9 @@
          <%= tag.text %>
        <% end %>
    <% end %>
- </div>
+   </div>
+   <%= f.submit 'レビューを投稿する', class:"p-2 mt-2 mb-5" %>
+</div>
 
 <% end %>
-
 </div>
