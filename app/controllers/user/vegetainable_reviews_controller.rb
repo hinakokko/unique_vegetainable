@@ -39,7 +39,7 @@ class User::VegetainableReviewsController < ApplicationController
   private
 
   def vegetainable_review_params
-    params.require(:vegetainable_review).permit(:title, :name, :price, :amount, :farmer_name, :shop_name,:image, :caption, :area, tag_ids: [])
+    params.require(:vegetainable_review).permit(:title, :name, :price, :amount, :farmer_name, :user_id, :shop_name,:image, :caption, :area, tag_ids: [])
   end
 
 end

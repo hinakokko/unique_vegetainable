@@ -27,6 +27,9 @@
         <div class="col-8 mt-5 border-top pt-4 mb-3">
           <table>
             <tr>
+              <th class="p-3"><%= image_tag '716.jpg', class: 'hoge' , size: '90x90'%><%= vegetainable_review.farmer_name %></th>
+            </tr>
+            <tr>
               <td>
                 <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
                   <% if vegetainable_review.image.attached? %>
@@ -36,6 +39,9 @@
                   <% end %>
                 <% end %>
               </td>
+            </tr>
+            <tr>
+              <th class="p-3">@<%= vegetainable_review.user.name %></th>
             </tr>
             <tr>
               <th class="p-3"><%= vegetainable_review.title %></th>
