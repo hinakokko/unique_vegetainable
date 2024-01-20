@@ -2,7 +2,10 @@
 
   <div class="row">
     <div class="col-12 pt-5 ml-5">
-      <table>
+      <div>
+        <p class="mb-5"><%= flash[:notice] %></p>
+      </div>
+    <table>
       <%= form_tag vegetainable_reviews_path, method: :get, class: 'boards__searchForm' do %>
       <%= select_tag :tag_id,
                      options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),

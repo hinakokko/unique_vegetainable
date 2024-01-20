@@ -16,8 +16,13 @@ class User::VegetainableReviewsController < ApplicationController
   def create
     @vegetainable_review = VegetainableReview.new(vegetainable_review_params)
     @vegetainable_review.user_id = current_user.id
-    @vegetainable_review.save
-    redirect_to vegetainable_reviews_path
+    if @vegetainable_review.save
+      flash[:notice] = "★ レビューが投稿されました！"
+      redirect_to vegetainable_reviews_path
+    else
+      render :new
+    end
+
   end
 
   def edit
@@ -33,7 +38,7 @@ class User::VegetainableReviewsController < ApplicationController
   def destroy
     @vegetainable_review = VegetainableReview.find(params[:id])
     @vegetainable_review.destroy
-    redirect_to vegetainable_reviews_path
+    redirect_to vegetainable_reviews_path, notice: '★ レビューが１件削除されました！'
   end
 
   private

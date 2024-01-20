@@ -1,75 +1,66 @@
 <div clas="container">
   <div class="row">
-    <div class="mx-auto">
-
-
-   <h2 class="col-5 mt-5 alert-secondary mb-5 p-2 text-center">投稿したレビューを編集する</h2>
-
-    <body class="m-5">
-    <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path(@vegetainable_review) do |f| %>
-
-    <table class="mt-3">
-    <tr>
-      <td><label for="inputName">購入した野菜</label></td>
-      <td><%= f.text_field :name, autofocus: true, id:"@vegetainable_review", placeholder:"購入した野菜の名前" %></td>
-    </tr>
-    </table>
-
-    <table class="mt-3">
-    <tr>
-      <td><label for="inputName">産地</label></td>
-      <td><%= f.text_field :area, autofocus: true, id:"@vegetainable_review", placeholder:"例：〇〇県産" %></td>
-    </tr>
-    </table>
-
-    <table class="mt-3">
-    <tr>
-      <td><label for="inputName">購入価格</label></td>
-      <td><%= f.text_field :price, autofocus: true, id:"@vegetainable_review", placeholder:"1点あたりの購入金額" %>円</td>
-    </tr>
-    </table>
-
-    <table class="mt-3">
-    <tr>
-      <td><label for="inputName">個数</label></td>
-      <td><%= f.text_field :amount, autofocus: true, id:"@vegetainable_review", placeholder:"1点あたりの個数" %></td>
-    </tr>
-    </table>
-
-    <table class="mt-3">
-      <tr>
-      <td><label for="inputName">農家</label></td>
-      <td><%= f.text_field :farmer_name, autofocus: true, id:"inputName", placeholder:"例：〇〇ファーム" %></td>
-    </tr>
-    </table>
-
-    <table class="mt-3">
-      <tr>
-      <td><label for="inputName">購入先</label></td>
-      <td><%= f.text_field :shop_name, autofocus: true, id:"inputName", placeholder:"例：〇〇の道の駅" %></td>
-    </tr>
-    </table>
-
-    <table class="mb-3 pr-5 center-block">
-    <tr>
-      <td><label for="inputImage">画像</label></td>
-      <td><%= f.file_field :image, placeholder: "商品画像", accept: "image/*" %> </td>
-    </tr>
-    </table>
-
-    <table class="mt-3">
-      <tr>
-      <td><label for="inputName">レビュー記入欄</label></td>
-      <td><%= f.text_area :caption, autofocus: true, id:"inputName", placeholder:"レビュー記入欄" %></td>
-    </tr>
-    </table>
-
-    <div class="mt-5 p-10 w-15 m-5 p-5">
-      <%= f.submit "変更を保存", class: "btn-success p-3 rounded" %>
+    <div class="col-12 mt-5 alert-secondary mb-5 p-2 text-center">
+      <h4>投稿したレビューを編集する</h4>
     </div>
-
-    <% end %>
-    </body>
   </div>
+
+
+    <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path(@vegetainable_review) do |f| %>
+  <div class="row">
+    <div class="col-12">
+
+      <p><label for="inputName">購入した野菜</label></p>
+      <%= f.text_field :name, autofocus: true, id:"@vegetainable_review", placeholder:"購入した野菜の名前", class:"p-2 w-75 mb-4"  %>
+
+
+      <p><label for="inputName">産地</label></p>
+      <%= f.text_field :area, autofocus: true, id:"@vegetainable_review", placeholder:"例：〇〇県産", class:"p-2 w-75 mb-4" %>
+
+
+    <tr>
+      <p><label for="inputName">購入価格</label></p>
+      <td><%= f.text_field :price, autofocus: true, id:"@vegetainable_review", placeholder:"1点あたりの購入金額", class:"p-2 w-75 mb-4" %>円</td>
+    </tr>
+
+    <tr>
+      <p><label for="inputName">個数</label></p>
+      <td><%= f.text_field :amount, autofocus: true, id:"@vegetainable_review", placeholder:"1点あたりの個数", class:"p-2 w-75 mb-4" %></td>
+    </tr>
+
+      <tr>
+      <p><label for="inputName">農家</label></p>
+      <td><%= f.text_field :farmer_name, autofocus: true, id:"inputName", placeholder:"例：〇〇ファーム", class:"p-2 w-75 mb-4" %></td>
+    </tr>
+
+      <tr>
+      <p><label for="inputName">購入先</label></p>
+      <td><%= f.text_field :shop_name, autofocus: true, id:"inputName", placeholder:"例：〇〇の道の駅", class:"p-2 w-75 mb-4" %></td>
+    </tr>
+
+    <tr>
+      <p><label for="inputImage">画像</label></p>
+      <td><%= f.file_field :image, placeholder: "商品画像", accept: "image/*", class:"p-2 w-100 mb-4" %> </td>
+    </tr>
+
+      <tr>
+      <p><label for="inputName">レビュー記入欄</label></p>
+      <td><%= f.text_area :caption, autofocus: true, id:"inputName", placeholder:"レビュー記入欄", class:"p-2 w-100 mb-4" %></td>
+    </tr>
+
+
+  <div class="row">
+    <div class="col-12 mt-4">
+      <%= f.submit "変更を保存", class: "btn-outline-warning p-3 rounded" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mt-4 mb-5">
+      <tr>
+        <td><%= link_to "レビュー詳細へ戻る", vegetainable_review_path, class: "btn btn-outline-warning p-2 mt-4"%></td>
+      </tr>
+    </div>
   </div>
 </div>

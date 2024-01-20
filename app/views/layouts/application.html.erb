@@ -29,41 +29,37 @@
         </tr>
       </div>
     </div>
-  <div class="row">
-    <div class="col-12 p-4 m-3">
-        <table>
-          <tr>
-            <td><%= link_to "ユニークベジティナブル", root_path, class: "border-1 rounded py-2 px-2 h3 btn-outline-success" %></td>
-          </tr>
-        </table>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-12 text-right pb-4">
+      <table>
+      <tr>
+        <td><%= link_to "ユニークベジティナブル", root_path, class: "border-1 rounded py-2 px-2 h3 btn-outline-success text-left" %></td>
+      </tr>
+      </table>
     <% if admin_signed_in? %>
       <tr>
-        <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
+        <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td> <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
+        <td> <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
     <% elsif user_signed_in? %>
       <tr>
-        <td><%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
+        <td><%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td><%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "border border-2 rounded p-2 mb-5 btn-outline-warning" %></td>
+        <td><%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "border border-2 rounded p-2 mt-5 btn-outline-warning" %></td>
+        <td><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
     <% else %>
       <tr>
-        <td><%= link_to "新規登録", new_user_registration_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
+        <td><%= link_to "新規登録", new_user_registration_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td><%= link_to "ログイン", new_user_session_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
+        <td><%= link_to "ログイン", new_user_session_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
     <% end %>
     </div>

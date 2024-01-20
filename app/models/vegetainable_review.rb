@@ -8,6 +8,12 @@ class VegetainableReview < ApplicationRecord
   has_many :vegetainable_reviews_tags, dependent: :destroy
   has_many :tags, through: :vegetainable_reviews_tags
 
+  validates :title, presence: true
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :amount, presence: true
+  validates :caption, presence: true
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end

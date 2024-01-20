@@ -94,13 +94,13 @@
     </div>
   </div>
   </table>
-<% end %>
 
 
 <div class="row">
   <div class="col-12 mt-4">
     <tr>
-      <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-outline-warning p-2 mt-4"%></td>
+      <td><%= link_to "レビューを編集する", edit_vegetainable_review_path, class: "btn btn-outline-warning pt-2 mt-4"%></td>
+      <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-outline-warning pt-2 ml-4 mt-4"%></td>
     </tr>
   </div>
 </div>
@@ -108,10 +108,14 @@
   <div class="col-12 mt-2 mb-5">
     <tr>
        <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-outline-warning p-2 mt-4"%></td>
+       <td><% if @vegetainable_review.user == current_user %>
+        <%= link_to "削除", vegetainable_review_path(@vegetainable_review), method: :delete, class: "btn btn-outline-warning p-2 ml-4 mt-4", data: { confirm: '本当に削除しますか？' }  %>
+        <% end %>
+       </td>
     </tr>
 
 </div>
 </div>
-
+<% end %>
 
 </div>
