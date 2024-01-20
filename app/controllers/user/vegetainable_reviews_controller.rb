@@ -7,6 +7,7 @@ class User::VegetainableReviewsController < ApplicationController
 
   def show
     @vegetainable_review = VegetainableReview.find(params[:id])
+    @comment = Comment.new
   end
 
   def new

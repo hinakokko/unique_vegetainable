@@ -118,4 +118,24 @@
 </div>
 <% end %>
 
+<div class="row">
+  <div class="col-12">
+<div>
+    <p>コメント件数：<%= @vegetainable_review.comments.count %></p>
+  <% @vegetainable_review.comments.each do |comment| %>
+    <p><%#= image_tag comment.user.get_profile_image(100,100) %></p>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.content %>
+  <% end %>
+</div>
+<div>
+  <%= form_with url: vegetainable_review_comments_path(@vegetainable_review.id), model: @comment do |f| %>
+    <%= f.text_area :content, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+  </div>
+</div>
+
+
 </div>
