@@ -33,58 +33,44 @@
     <div class="col-12 p-4 m-3">
         <table>
           <tr>
-            <td><%= link_to "ユニークベジティナブル", root_path, class: "border border-2 rounded py-2 px-5 h2" %></td>
+            <td><%= link_to "ユニークベジティナブル", root_path, class: "border-1 rounded py-2 px-2 h3 btn-outline-success" %></td>
           </tr>
         </table>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 text-right pr-5">
+    <div class="col-12 text-right pb-4">
     <% if admin_signed_in? %>
       <tr>
-        <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "border border-2 rounded p-2 m-3" %></td>
+        <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td> <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "border border-2 rounded p-2 m-3" %></td>
+        <td> <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
       </tr>
     <% elsif user_signed_in? %>
       <tr>
-        <td><%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "border border-2 rounded p-2 m-3" %></td>
+        <td><%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td><%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "border border-2 rounded p-2 m-3" %></td>
+        <td><%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "border border-2 rounded p-2 mb-5 btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "border border-2 rounded p-2 m-3" %></td>
+        <td><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "border border-2 rounded p-2 mt-5 btn-outline-warning" %></td>
       </tr>
     <% else %>
       <tr>
-        <td><%= link_to "新規登録", new_user_registration_path, class: "border border-2 rounded p-2 m-3" %></td>
+        <td><%= link_to "新規登録", new_user_registration_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td><%= link_to "ログイン", new_user_session_path, class: "border border-2 rounded p-2 m-3" %></td>
+        <td><%= link_to "ログイン", new_user_session_path, class: "border border-2 rounded p-2 m-3 btn-outline-warning" %></td>
       </tr>
     <% end %>
     </div>
     <%= yield %>
 
+  　</div>
   </div>
-          <tr>
-            <td class="pb-5">
-            <%= image_tag '716.jpg', class: 'hoge' , size: '130x130'%>
-            <%= image_tag '372.jpg', class: 'hoge' , size: '130x130'%>
-            <%= image_tag '386.jpg', class: 'hoge' , size: '130x130'%>
-            <%= image_tag '391.jpg', class: 'hoge' , size: '130x130'%>
-            <%= image_tag '383.jpg', class: 'hoge' , size: '130x130'%>
-            <%= image_tag '386.jpg', class: 'hoge' , size: '130x130'%>
-            <%= image_tag '375.jpg', class: 'hoge' , size: '130x130'%>
-            <%= image_tag '715.jpg', class: 'hoge' , size: '130x130'%>
-            </td>
-          </tr>
-
-
-  </div>
-  </div>
+</div>
 
 </html>

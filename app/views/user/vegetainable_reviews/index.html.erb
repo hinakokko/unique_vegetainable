@@ -1,19 +1,13 @@
 <div class="container">
+
   <div class="row">
-    <div class="col-5">
-      <tr>
-        <h2 class="p-2 text-center">レビュー投稿一覧</h2>
-      </tr>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 pt-5 ml-3">
+    <div class="col-12 pt-5 ml-5">
       <table>
       <%= form_tag vegetainable_reviews_path, method: :get, class: 'boards__searchForm' do %>
       <%= select_tag :tag_id,
                      options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                      {
-                       prompt: 'タグで絞り込み検索',
+                       prompt: 'ハッシュタグ検索',
                        onchange: 'submit(this.form);'
                      }
       %>
@@ -50,7 +44,7 @@
               <td class="p-3"><%= vegetainable_review.caption %></td>
             </tr>
             <tr>
-              <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-primary ml-4 mt-3"%></td>
+              <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-outline-warning ml-4 mt-3"%></td>
             </tr>
           </table>
         </div>
