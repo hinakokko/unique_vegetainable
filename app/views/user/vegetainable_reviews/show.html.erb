@@ -131,7 +131,7 @@
       <% end %>
 
       <%= form_with url: vegetainable_review_comments_path(@vegetainable_review.id), model: @comment do |f| %>
-        <%= f.text_area :content, rows: '5', placeholder: "コメントはここに", class: "mt-4 px-5" %>
+        <%= f.text_area :content, rows: '5', placeholder: "コメントはこちらへ", class: "mt-4 px-5" %>
         <%= f.submit "送信する", class: "btn btn-outline-warning p-2 mt-4 mb-5" %>
       <% end %>
     </div>
