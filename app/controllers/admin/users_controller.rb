@@ -12,6 +12,22 @@ class Admin::UsersController < ApplicationController
     @review = @reviews.page(params[:page])
   end
 
+  def create
+    @user = User.new(user_params)
+    @user.save
+    redirect_to edit_admin_user_path(@user.id)
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
+    redirect_to admin_users_path(user.id)
+  end
+
   private
 
   def user_params

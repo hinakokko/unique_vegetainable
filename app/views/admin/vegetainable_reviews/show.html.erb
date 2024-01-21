@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12">
       <table class="m-1">
-      <h4 class="mx-auto mb-10 ml-5 alert-secondary p-2 text-center mt-5">レビュー投稿詳細</h4>
+      <h5 class="mx-auto mb-10 ml-5 p-2 text-center mt-5">
+        @<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿詳細</h5>
       </table>
     </div>
   </div>
@@ -81,9 +82,12 @@
 <% end %>
 
 <div class="row">
-  <div class="col-12 mt-2 mb-5">
+  <div class="col-12 mt-3 mb-5">
     <tr>
-       <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-primary p-2 mt-4"%></td>
+       <td><%= link_to "<< 会員詳細へ戻る", admin_user_path(@user), class: "btn btn-outline-warning p-2 mt-4 mb-5 mr-3" %></td>
+    </tr>
+    <tr>
+       <td><%= link_to "会員のレビュー投稿一覧", vegetainable_reviews_path, class: "btn btn-outline-warning p-2 mt-4 mb-5" %></td>
     </tr>
   </div>
 </div>
