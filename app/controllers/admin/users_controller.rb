@@ -9,6 +9,7 @@ class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = @user.vegetainable_reviews
+    @review = @reviews.page(params[:page])
   end
 
   private

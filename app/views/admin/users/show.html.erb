@@ -1,66 +1,98 @@
 <div class="container">
     <div class="row">
        <table>
-            <div class="mt-5 p-1 col-4 text-center">
+            <div class="mt-5 p-1 col-4">
             <h5><%= @user.name %> ( <%= @user.nickname %> ) さんの会員詳細</h5>
             </div>
        </table>
+    </div>
 
-    <div class="col-12">
-
+  <div class="row">
+    <div class="col-8">
      <body>
-        <table class="mt-5 w-50 text-left">
+        <table class="mt-5 w-50 text-center border">
             <tr>
-                <td class="pl-5 p-2">会員ID</td>
-                <td><%= @user.id %></td>
+                <th class="py-2 border">会員ID</th>
+                <td class="border"><%= @user.id %></td>
             </tr>
             <tr>
-                <td class="pl-5 p-2">アカウント名</td>
-                <td><%= @user.name %></td>
+                <th class="p-2 border">アカウント名</th>
+                <td class="border"><%= @user.name %></td>
             </tr>
             <tr>
-                <td class="pl-5 p-2">ニックネーム</td>
-                <td><%= @user.name %></td>
+                <th class="p-2 border">ニックネーム</th>
+                <td class="border"><%= @user.name %></td>
             </tr>
              <tr>
-                <td class="pl-5 p-2">電話番号</td>
-                <td><%= @user.telephone_number %></td>
+                <th class="p-2 border">電話番号</th>
+                <td class="border"><%= @user.telephone_number %></td>
             </tr>
              <tr>
-                <td class="pl-5 p-2">メールアドレス</td>
-                <td><%= @user.email %></td>
+                <th class="p-2 border">メールアドレス</th>
+                <td class="border"><%= @user.email %></td>
             </tr>
             <tr>
-                <td class="pl-5 p-2">会員ステータス</td>
-                <td><%= @user.is_active %></td>
+                <th class="p-2 border">会員ステータス</th>
+                <td class="border"><%= @user.is_active %></td>
             </tr>
             <tr>
-                <td class="pl-5 p-2">会員登録日</td>
-                <td><%= @user.created_at.strftime('%Y/%m/%d') %></td>
+                <th class="p-2 border">会員登録日</th>
+                <td class="border"><%= @user.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
-
         </table>
 
-         <div class="mt-5 p-10 w-15 m-5 p-5">
-        <tr>
+         <div class="mt-5 m-5 p-5">
+          <tr>
             <%= link_to "編集する", edit_admin_user_path(@user), class: "btn btn-outline-warning p-2 mr-4 mb-5" %>
+          </tr>
+          <tr>
+            <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-outline-warning p-2 mr-4 mb-5" %>
+          </tr>
+         </div>
+      </body>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      <% @reviews.each do |review| %>
+        <tr>
+          <th>レビューID：</th>
+          <td><%= review.id %><br></td>
         </tr>
         <tr>
-            <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-outline-warning p-2 mr-4 mb-5" %>
+          <th>レビュー投稿日：</th>
+          <td><%= review.created_at.strftime('%Y/%m/%d') %><br><br></td>
         </tr>
-         </div>
+        <tr>
+          <th>タイトル：</th>
+          <td><%= review.title %><br><br></td>
+        </tr>
+        <tr>
+          <th>レビュー内容：</th>
+          <td><%= review.caption %><br><br></td>
+        </tr>
+        <tr>
+          <th>種類：</th>
+          <td><%= review.name %><br><br></td>
+        </tr>
+        <tr>
+          <th>産地：</th>
+          <td><%= review.area %><br><br></td>
+        </tr>
+        <tr>
+          <th>農家：</th>
+          <td><%= review.farmer_name %><br><br></td>
+        </tr>
+        <tr>
+          <th>販売先：</th>
+          <td><%= review.shop_name %><br><br></td>
+        </tr>
+      </table>
+      <% end %>
 
-    </body>
-
- </div>
+    </div>
+  </div>
+  <footer class="pl-5 pt-3 w-50 col-12 pb-5 text-center">
+        <%= paginate @review %>
+        </footer>
 </div>
-
-
-
-
-
-<% @reviews.each do |review| %>
-<%= review.id %><br>
-<%= review.area %><br>
-
-<% end %>
