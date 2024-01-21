@@ -32,8 +32,18 @@
               <td class="pl-5"><%= f.text_field :email, autofocus: true, id:"@user", placeholder:"メールアドレス" %></td>
             </tr>
         </table>
-        <%= f.submit "変更を保存する", class: "btn btn-outline-warning p-2 mt-4 mb-5" %>
-        <% end %>
+          <tr>
+            <%= f.submit "変更を保存する", class: "btn btn-outline-warning p-2 mt-5 mb-4 ml-3" %>
+            <% end %>
+          </tr>
+        <div class="col-12 mt-2">
+          <tr>
+            <%= link_to "<< 会員詳細へ戻る", admin_user_path(@user), class: "btn btn-outline-warning p-2 mb-5 mr-3" %>
+          </tr>
+          <tr>
+            <%= link_to "<< レビュー投稿詳細を見る", admin_user_vegetainable_review_path(@user), class: "btn btn-outline-warning p-2 mr-4 mb-5" %>
+          </tr>
+        </div>
       <div>
     </div>
 </div>
