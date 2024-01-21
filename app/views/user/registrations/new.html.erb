@@ -40,6 +40,11 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "p-1 mb-3" %>
       </div>
 
+      <div>
+        <%= f.label :プロフィール画像 %><br />
+        <%= f.file_field :profile_image, accept: "image/*", class: "p-1 mb-3" %>
+      </div>
+
       <div class="actions">
         <%= f.submit "新規登録", class: "btn btn-outline-warning mt-3 mb-5" %>
       </div>

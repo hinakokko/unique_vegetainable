@@ -1,7 +1,9 @@
 class Admin::UsersController < ApplicationController
 
   def index
-   @reviews = VegetainableReview.all
+    @reviews = VegetainableReview.all
+    @users = User.all
+    @user = @users.page(params[:page])
   end
 
   def show

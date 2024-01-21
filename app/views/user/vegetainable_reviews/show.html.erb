@@ -13,7 +13,9 @@
   <div class="col-5">
     <table class="m-1">
     <tr>
-       <th class="pl-4 pt-3 h5">@<%= @vegetainable_review.user.name %> ( <%= @vegetainable_review.user.nickname %> )</th>
+       <th class="pl-4 pt-3 h5">
+         <%#= image_tag vegetainable_review.user.get_profile_image(90,90) %>
+         @<%= @vegetainable_review.user.name %> ( <%= @vegetainable_review.user.nickname %> )</th>
     </tr>
     <tr>
       <td class="pt-4 px-3">

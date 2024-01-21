@@ -24,7 +24,18 @@
       <div class="row">
         <div class="col-3 mt-5 pt-4 mb-3">
             <tr>
-              <th class="p-3"><%= image_tag '716.jpg', class: 'hoge' , size: '90x90'%>@<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
+              <th class="p-3">
+              <%#= image_tag '716.jpg', class: 'hoge' , size: '90x90' %>
+              <%#= image_tag vegetainable_review.user.get_profile_image(100,100) %></p>
+              
+                <% if vegetainable_review.user.profile_image.attached? %>
+                <%= image_tag vegetainable_review.user.profile_image.variant(resize_to_limit: [300, 200]).processed %>
+                <% else %>
+                <%= image_tag 'no_image', size: "300x200" %>
+                <% end %>
+           
+                
+              @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
             </tr>
             <tr>
               <td>
