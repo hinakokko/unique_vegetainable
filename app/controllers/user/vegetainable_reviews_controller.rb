@@ -1,8 +1,9 @@
 class User::VegetainableReviewsController < ApplicationController
 
   def index
-    @vegetainable_reviews = VegetainableReview.all
+    # @vegetainable_reviews = VegetainableReview.all
     @vegetainable_reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).vegetainable_reviews : VegetainableReview.all
+    @vegetainable_reviews = @vegetainable_reviews.page(params[:page])
   end
 
   def show
