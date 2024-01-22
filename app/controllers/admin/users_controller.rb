@@ -1,15 +1,15 @@
 class Admin::UsersController < ApplicationController
 
   def index
-    @reviews = VegetainableReview.all
+    @vegetainable_reviews = VegetainableReview.all
     @users = User.all
     @user = @users.page(params[:page])
   end
 
   def show
     @user = User.find(params[:id])
-    @reviews = @user.vegetainable_reviews
-    @review = @reviews.page(params[:page])
+    @vegetainable_reviews = @user.vegetainable_reviews
+    @vegetainable_review = @vegetainable_reviews.page(params[:page])
   end
 
   def create
@@ -31,7 +31,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:admin_id, :user_id, :nickname, :name, :encrypted_password, :image, :telephone_number, :is_active, tag_ids: [])
+    params.require(:user).permit(:admin_id, :email, :user_id, :nickname, :name, :encrypted_password, :image, :telephone_number, :is_active, tag_ids: [])
   end
 
 

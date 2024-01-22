@@ -55,46 +55,71 @@
   <div class="row">
     <div class="col-7 pt-5">
       <h5 class="pb-5">@<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿一覧</h5>
-      <% @reviews.each do |review| %>
+      <% @vegetainable_reviews.each do |vegetainable_review| %>
       <table>
         <tr>
           <th nowrap>レビュー投稿日：</th>
-          <td><%= review.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= vegetainable_review.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
           <th>レビューID：</th>
-          <td><%= link_to review.id, admin_user_vegetainable_review_path(@user, review) %></td>
+          <td><%= link_to vegetainable_review.id, admin_user_vegetainable_review_path(@user, vegetainable_review) %></td>
         </tr>
         <tr>
           <th>タイトル：</th>
-          <td><%= review.title %></td>
+          <td><%= vegetainable_review.title %></td>
         </tr>
         <tr>
           <th nowrap>レビュー内容：</th>
-          <td><%= review.caption %></td>
+          <td><%= vegetainable_review.caption %></td>
         </tr>
         <tr>
           <th>種類：</th>
-          <td><%= review.name %></td>
+          <td><%= vegetainable_review.name %></td>
         </tr>
         <tr>
           <th>産地：</th>
-          <td><%= review.area %></td>
+          <td><%= vegetainable_review.area %></td>
         </tr>
         <tr>
           <th>農家：</th>
-          <td><%= review.farmer_name %></td>
+          <td><%= vegetainable_review.farmer_name %></td>
         </tr>
         <tr>
           <th>販売先：</th>
-          <td class="pb-2"><%= review.shop_name %></td>
+          <td class="pb-2"><%= vegetainable_review.shop_name %></td>
         </tr>
         </table><hr class="p-2">
       <% end %>
 
     </div>
   </div>
+  <div class="row">
+    <div class=col-12>
+      <h3>レビューコメント一覧</h3>
+<table class="table mt-3">
+  <tr>
+    <th class="col-2">名前</th>
+    <th class="col-8">コメント</th>
+    <th class="col-1"></th>
+    <th class="col-1"></th>
+  </tr>
+<% @vegetainable_reviews.each do |vegetainable_review| %>
+  <tr>
+    <td class="col-2"><%= vegetainable_review.name %></td>
+    <td class="col-8"><%= vegetainable_review.caption %></td>
+    <td class="col-1"><%= vegetainable_review.created_at.strftime('%Y/%m/%d') %></td>
+    <td class="col-1">
+    <%= link_to '削除', admin_user_vegetainable_review_path(vegetainable_review), method: :delete, data: { confirm: '本当に削除しますか?' },class: "btn btn-sm btn-danger" %>
+    </td>
+  </tr>
+<% end %>
+    </div>
+  </div>
+
+
+
   <footer class="pl-5 pt-3 w-50 col-12 pb-5 text-center">
-        <%= paginate @review %>
+        <%= paginate @vegetainable_review %>
         </footer>
 </div>
