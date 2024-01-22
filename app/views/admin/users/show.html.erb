@@ -12,10 +12,6 @@
      <body>
         <table class="mt-5 w-50 text-center border">
             <tr>
-              <th class="py-2 border"><%= link_to "レビュー詳細", admin_user_vegetainable_review_path(@user) %></th>
-              <td class="border"></td>
-            </tr>
-            <tr>
                 <th class="py-2 border">会員ID</th>
                 <td class="border"><%= @user.id %></td>
             </tr>
@@ -57,42 +53,43 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-7 border-top pt-5">
+    <div class="col-7 pt-5">
       <h5 class="pb-5">@<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿一覧</h5>
       <% @reviews.each do |review| %>
+      <table>
         <tr>
-          <th>レビュー投稿日：</th>
-          <td><%= review.created_at.strftime('%Y/%m/%d') %><br></td>
+          <th nowrap>レビュー投稿日：</th>
+          <td><%= review.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
           <th>レビューID：</th>
-          <td><%= review.id %><br><br></td>
+          <td><%= link_to review.id, admin_user_vegetainable_review_path(@user, review) %></td>
         </tr>
         <tr>
           <th>タイトル：</th>
-          <td><%= review.title %><br><br></td>
+          <td><%= review.title %></td>
         </tr>
         <tr>
-          <th>レビュー内容：</th>
-          <td><%= review.caption %><br><br></td>
+          <th nowrap>レビュー内容：</th>
+          <td><%= review.caption %></td>
         </tr>
         <tr>
           <th>種類：</th>
-          <td><%= review.name %><br><br></td>
+          <td><%= review.name %></td>
         </tr>
         <tr>
           <th>産地：</th>
-          <td><%= review.area %><br><br></td>
+          <td><%= review.area %></td>
         </tr>
         <tr>
           <th>農家：</th>
-          <td><%= review.farmer_name %><br><br></td>
+          <td><%= review.farmer_name %></td>
         </tr>
         <tr>
           <th>販売先：</th>
-          <td><%= review.shop_name %><br><br></td>
+          <td class="pb-2"><%= review.shop_name %></td>
         </tr>
-
+        </table><hr class="p-2">
       <% end %>
 
     </div>
