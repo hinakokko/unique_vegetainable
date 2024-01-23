@@ -1,0 +1,22 @@
+<div clas="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="m-1">
+      <h5 class="mx-auto mb-10 ml-5 p-2 text-center mt-5">
+        @<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿詳細</h5>
+      </table>
+    </div>
+  </div>
+
+  <% @vegetainable_reviews.each do |vegetainable_review| %>
+  <div class="row">
+    <div class="col-12">
+      <table class="m-3">
+        <tr>
+          <td><td class="pt-2 pb-2 px-3"><h4><%= vegetainable_review.title %></h4></td>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+<% end %>
