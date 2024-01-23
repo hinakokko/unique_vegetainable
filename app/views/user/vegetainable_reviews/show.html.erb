@@ -6,7 +6,11 @@
   <!--    </table>-->
   <!--  </div>-->
   <!--</div>-->
-
+  <div calss="row">
+    <div class="col-12">
+        <p class="mb-6"><%= flash[:notice] %></p>
+    </div>
+  </div>
 
 <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
 <div class="row">

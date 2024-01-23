@@ -20,7 +20,7 @@ class User::VegetainableReviewsController < ApplicationController
     @vegetainable_review.user_id = current_user.id
     if @vegetainable_review.save
       flash[:notice] = "★ レビューが投稿されました！"
-      redirect_to vegetainable_reviews_path
+      redirect_to vegetainable_review_path(@vegetainable_review.id)
     else
       render :new
     end
