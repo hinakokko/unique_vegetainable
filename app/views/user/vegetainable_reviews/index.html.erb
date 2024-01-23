@@ -28,11 +28,12 @@
               <%#= image_tag '716.jpg', class: 'hoge' , size: '90x90' %>
               <%#= image_tag vegetainable_review.user.get_profile_image(100,100) %></p>
 
-                <% if vegetainable_review.user.profile_image.attached? %>
-                <%= image_tag vegetainable_review.user.profile_image.variant(resize_to_limit: [300, 200]).processed %>
-                <% else %>
-                <%= image_tag 'no_image', size: "300x200" %>
-                <% end %>
+                <%# if vegetainable_review.user.profile_image.attached? %>
+                <%#= image_tag vegetainable_review.user.profile_image.variant(resize_to_limit: [300, 200]).processed %>
+                <%# else %>
+                <%#= image_tag 'no_image', size: "300x200" %>
+                <%# end %>
+                <%= image_tag vegetainable_review.user.get_profile_image(100, 100) %>
 
 
               @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
@@ -40,11 +41,7 @@
             <tr>
               <td>
                 <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
-                  <% if vegetainable_review.image.attached? %>
-                  <%= image_tag vegetainable_review.image, size: "300x200" %>
-                  <% else %>
-                  <%= image_tag 'no_image', size: "300x200" %>
-                  <% end %>
+                <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
                 <% end %>
               </td>
             </tr>

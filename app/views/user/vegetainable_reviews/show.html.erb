@@ -114,8 +114,9 @@
   <div class="col-12 mt-2 mb-5">
     <tr>
        <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-outline-warning p-2 mt-4"%></td>
-       <td><% if @vegetainable_review.user == current_user %>
-        <%= link_to "削除", vegetainable_review_path(@vegetainable_review), method: :delete, class: "btn btn-outline-warning p-2 ml-4 mt-4", data: { confirm: '本当に削除しますか？' }  %>
+       <td>
+        <% if @vegetainable_review.user == current_user %>
+          <%= link_to "削除", vegetainable_review_path(@vegetainable_review), method: :delete, class: "btn btn-outline-warning p-2 ml-4 mt-4", data: { confirm: '本当に削除しますか？' }  %>
         <% end %>
        </td>
     </tr>
