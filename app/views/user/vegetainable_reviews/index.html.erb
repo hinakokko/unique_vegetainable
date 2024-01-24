@@ -24,21 +24,6 @@
       <div class="row">
         <div class="col-3 mt-5 pt-4 mb-3">
             <tr>
-              <th class="p-3">
-              <%#= image_tag '716.jpg', class: 'hoge' , size: '90x90' %>
-              <%#= image_tag vegetainable_review.user.get_profile_image(100,100) %></p>
-
-                <%# if vegetainable_review.user.profile_image.attached? %>
-                <%#= image_tag vegetainable_review.user.profile_image.variant(resize_to_limit: [300, 200]).processed %>
-                <%# else %>
-                <%#= image_tag 'no_image', size: "300x200" %>
-                <%# end %>
-                <%= image_tag vegetainable_review.user.get_profile_image(100, 100) %>
-
-
-              @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
-            </tr>
-            <tr>
               <td>
                 <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
                 <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
@@ -47,6 +32,11 @@
             </tr>
         </div>
         <div class="col-4">
+            <tr>
+              <th class="p-3">
+              <%= image_tag vegetainable_review.user.get_profile_image(80, 80) %>
+              @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
+            </tr>
             <tr>
               <th class="p-3"><%= vegetainable_review.title %></th>
             </tr>
@@ -61,6 +51,7 @@
                 <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-outline-warning ml-4 mt-3"%></td>
               </tr>
             <% end %>
+            <hr class="p-2">
         </div>
       </div>
     </table>
