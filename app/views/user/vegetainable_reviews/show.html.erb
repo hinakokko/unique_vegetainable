@@ -52,7 +52,6 @@
 <div class="row">
   <div class="col-7 ml-4">
     <table>
-      <td>
       <tr>
           <td class="pt-2 pb-2 px-3"><h4><%= @vegetainable_review.title %></h4></td>
       </tr>
@@ -116,7 +115,7 @@
   <div class="col-12 mt-2 mb-5">
     <tr>
        <td><%= link_to "レビューの一覧", vegetainable_reviews_path, class: "btn btn-outline-warning p-2 mt-4"%></td>
-       <td><%= link_to "ユーザーの投稿一覧を見る", user_path, class: "btn btn-outline-warning pt-2 ml-4 mt-4"%></td>
+       <td><%= link_to "このユーザーの投稿一覧を見る", user_path, class: "btn btn-outline-warning pt-2 ml-4 mt-4"%></td>
         <% if @vegetainable_review.user == current_user %>
           <%= link_to "削除", vegetainable_review_path(@vegetainable_review), method: :delete, class: "btn btn-outline-warning p-2 ml-4 mt-4", data: { confirm: '本当に削除しますか？' }  %>
         <% end %>
