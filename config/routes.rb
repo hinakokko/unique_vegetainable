@@ -41,8 +41,8 @@ scope module: :user do
 
   get 'users/my_page' => "users#show", as: 'my_page'
   get '/users/my_page/edit' => "users#edit", as: 'edit_my_page'
-  patch '/users/my_page' => "users#update", as: 'update_my_page'
-  destroy '/users/withdraw_confirmation' => "users#withdraw_confirmation", as: 'withdraw_confirmation'
+  # patch '/users/my_page' => "users#update", as: 'update_my_page'
+  # destroy '/users/withdraw_confirmation' => "users#withdraw_confirmation", as: 'withdraw_confirmation'
 
 
   # get 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'new_favorite'
