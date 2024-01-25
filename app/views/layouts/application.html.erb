@@ -49,15 +49,25 @@
       </tr>
     <% elsif user_signed_in? %>
       <tr>
+        <td><%= link_to 'マイページ', my_page_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
+      </tr>
+      <tr>
         <td><%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
       <tr>
-        <td><%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
+        <td>
+          <% if current_user.email != 'guest@example.com'%>
+          <%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %>
+          <% end %>
+          </td>
       </tr>
       <tr>
         <td><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
     <% else %>
+      <tr>
+        <td><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></td>
+      </tr>
       <tr>
         <td><%= link_to "新規登録", new_user_registration_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>

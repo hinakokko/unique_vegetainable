@@ -34,8 +34,10 @@
         <div class="col-4">
             <tr>
               <th class="p-3">
+              <%= link_to my_page_path(@user) do %>
               <%= image_tag vegetainable_review.user.get_profile_image(80, 80) %>
               @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
+              <% end %>
             </tr>
             <tr>
               <th class="p-3"><%= vegetainable_review.title %></th>

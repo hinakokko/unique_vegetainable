@@ -22,6 +22,10 @@ get 'users/destroy' => "users#delete"
   sessions: 'user/sessions'
 }
 
+  devise_scope :user do
+  post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
+  end
+
 namespace :admin do
   root to: "homes#top"
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
@@ -41,6 +45,9 @@ scope module: :user do
 
   get 'users/my_page' => "users#show", as: 'my_page'
   get '/users/my_page/edit' => "users#edit", as: 'edit_my_page'
+  patch '/users/my_page' => "users#update", as: 'update_my_page'
+  get '/users/my_page/withdraw_confirmation' => "users#withdraw_confirmation", as: 'withdraw_confirmation_my_page'
+  patch '/users/my_page/withdraw' => "users#withdraw", as: 'withdraw_my_page'
   # patch '/users/my_page' => "users#update", as: 'update_my_page'
   # destroy '/users/withdraw_confirmation' => "users#withdraw_confirmation", as: 'withdraw_confirmation'
 

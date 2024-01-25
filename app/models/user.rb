@@ -8,7 +8,7 @@ class User < ApplicationRecord
    has_many :favorites, dependent: :destroy
    has_many :comments, dependent: :destroy
    has_many :favorites, dependent: :destroy
-   belongs_to :admin
+   belongs_to :admin, optional: true
 
    has_one_attached :profile_image
 
@@ -18,6 +18,16 @@ class User < ApplicationRecord
     profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
   profile_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+      user.telephone_number = "09012345678"
+      user.name = "ゲストユーザー"
+      user.nickname = "ゲストユーザー"
+    end
   end
 
 end
