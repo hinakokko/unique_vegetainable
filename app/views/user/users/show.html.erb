@@ -1,11 +1,27 @@
 <div class="container">
-       <table class="row">
+       <div class="row">
             <div class="mt-5 p-1 col-12">
             <h5>@<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿一覧</h5>
             </div>
+        </div>
+  <div class="row">
+    <div class="col-5 pt-5 ml-5 mb-5">
+    <table>
+      <%= form_tag vegetainable_reviews_path, method: :get, class: 'boards__searchForm' do %>
+      <%= select_tag :tag_id,
+                     options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                     {
+                       prompt: 'ハッシュタグ検索',
+                       onchange: 'submit(this.form);'
+                     }
+      %>
+    <% end %>
+    </table>
+    </div>
+  </div>
 
-
-    <tbody class="col-12">
+  <table>
+    <tbody class="col-12 mt-5">
       <% @vegetainable_reviews.each do |vegetainable_review| %>
          <tr>
               <td>
@@ -16,10 +32,8 @@
             </tr>
             <tr>
               <th class="p-3">
-              <%= link_to user_path(vegetainable_review.user) do %>
               <%= image_tag vegetainable_review.user.get_profile_image(80, 80) %>
               @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
-              <% end %>
             </tr>
         <tr>
           <th class="p-3"><%= vegetainable_review.title %></th>
@@ -28,9 +42,9 @@
           <td class="pt-1 pb-3 pl-3"><%= vegetainable_review.caption %></td>
         </tr>
         <tr>
-          <td class="p-3">農家：<%= vegetainable_review.farmer_name %></td>
+          <td class="p-3">農家：<%= vegetainable_review.farmer_name %><hr clas="pt-3"></td>
         </tr>
       <% end %>
     </tbody>
-    </table>
+  </table>
 </div>
