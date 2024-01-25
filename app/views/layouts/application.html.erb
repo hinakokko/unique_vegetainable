@@ -66,7 +66,7 @@
       </tr>
     <% else %>
       <tr>
-        <td><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></td>
+        <td><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>
       </tr>
       <tr>
         <td><%= link_to "新規登録", new_user_registration_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>

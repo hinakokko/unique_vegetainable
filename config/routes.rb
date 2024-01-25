@@ -43,14 +43,13 @@ scope module: :user do
   end
   resource :favorite, only: [:create, :destroy]
 
-  get 'users/my_page' => "users#show", as: 'my_page'
+  get 'users/my_page' => "users#mypage", as: 'my_page'
   get '/users/my_page/edit' => "users#edit", as: 'edit_my_page'
   patch '/users/my_page' => "users#update", as: 'update_my_page'
   get '/users/my_page/withdraw_confirmation' => "users#withdraw_confirmation", as: 'withdraw_confirmation_my_page'
   patch '/users/my_page/withdraw' => "users#withdraw", as: 'withdraw_my_page'
-  # patch '/users/my_page' => "users#update", as: 'update_my_page'
-  # destroy '/users/withdraw_confirmation' => "users#withdraw_confirmation", as: 'withdraw_confirmation'
 
+  resources :users, only: [:index, :show]
 
   # get 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'new_favorite'
   # post 'vegetainable_review/:id/favorite/new' => "favorites#new", as: 'favorite'
