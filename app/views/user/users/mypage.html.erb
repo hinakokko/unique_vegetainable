@@ -13,6 +13,10 @@
        <% if @user.email != 'guest@example.com'%>
         <table class="mt-5 w-50 text-center border">
             <tr>
+              <th class="py-2 border">プロフィール画像</th>
+              <td class="border"><%= image_tag @user.get_profile_image(80, 80) %></td>
+            </tr>
+            <tr>
                 <th class="py-2 border">会員ID</th>
                 <td class="border"><%= @user.id %></td>
             </tr>
