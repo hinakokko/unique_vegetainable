@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+    <%= form_with model: @user, url: withdraw_my_page_path do |f| %>
+    <div class="center-block text-center mt-5">
+      <h5 class="font-weight-bold">本当に退会しますか？</h5><br>
+      <p>退会すると、会員登録情報や</p>
+      <p>これまでの投稿レビューが閲覧できなくなります。</p>
+      <p>退会する場合は、「退会する」をクリックしてください。</p>
+
+      <tr>
+        <td><%= link_to "退会しない", my_page_path, class: "btn btn-warning mt-5 mr-4" %></td>
+        <td><%= link_to "退会する", withdraw_my_page_path, method: :patch, class: "btn btn-danger mt-5", "data-confirm" => "本当に退会しますか？" %></td>
+      </tr>
+    <% end %>
+    </div>
+   </div>
+  </div>
+</div>

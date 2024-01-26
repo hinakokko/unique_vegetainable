@@ -54,5 +54,15 @@ class User::SessionsController < Devise::SessionsController
      devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :email, :encrypted_password])
   end
 
+  private
+
+def user_state
+    @user = User.find_by(email: params[:user][:email])
+    return if !@user
+    if @user.valid_password?(params[:user][:password]) && !@user.is_active
+      redirect_to new_user_registration_path
+    end
+end
+
 
 end

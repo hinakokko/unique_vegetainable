@@ -34,7 +34,6 @@ namespace :admin do
 
 end
 
-
 scope module: :user do
   root to: 'homes#top'
   resources :homes, only: [:show]
