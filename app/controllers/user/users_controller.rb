@@ -8,6 +8,9 @@ class User::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @vegetainable_reviews = @user.vegetainable_reviews
+    # @comment = Comment.new
+    # @comments = Comments.find(params[:id])
+    # @comment = @vegetainable_reviews.comment
   end
 
   def mypage
