@@ -11,6 +11,10 @@
         <%= form_with model: @user, method: :patch, url: update_my_page_path(@user) do |f| %>
         <table>
             <tr>
+              <td class="w-40 p-2">プロフィール画像</td>
+              <td class="pl-5"><%= f.file_field :profile_image, accept: "image/*", autofocus: true, id:"@user", placeholder:"プロフィール画像" %></td>
+            </tr>
+            <tr>
               <td class="w-40 p-2"><label for="inputName">アカウント名</label></dr>
               <td class="pl-5"><%= f.text_field :name, autofocus: true, id:"@user", placeholder:"アカウント名" %></td>
             </tr>
