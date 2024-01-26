@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="mt-5 p-1 col-4 text-center">
+        <div class="mt-5 p-1 col-sm-4 text-center">
           <h5>@<%= @user.name %> ( <%= @user.nickname %> ) さんの会員情報編集</h5>
         </div>
     </div>
 
     <div class="row">
-      <div class="col-12 mt-5">
+      <div class="col-sm-12 mt-5">
         <body>
         <%= form_with model: @user, method: :patch, url: update_my_page_path(@user) do |f| %>
         <table>
@@ -38,7 +38,7 @@
             <%= f.submit "変更を保存する", class: "btn btn-outline-warning p-2 mt-5 mb-4 ml-3" %>
             <% end %>
           </tr>
-        <div class="col-12 mt-2">
+        <div class="col-sm-12 mt-2">
           <tr>
             <%= link_to "<< マイページへ戻る", my_page_path(@user), class: "btn btn-outline-warning p-2 mb-5 mr-3" %>
           </tr>
