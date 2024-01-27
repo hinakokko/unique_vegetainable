@@ -29,13 +29,39 @@ class VegetainableReview < ApplicationRecord
   end
 
   def self.looks(search, word)
-    if search == 'title'
-      where("shop_name LIKE ?", "%#{word}%")
-    elsif search == 'body'
-      where("farmer_name LIKE ?", "%#{word}%")
+    if search == "perfect_match"
+      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
+    elsif search == "forward_match"
+      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","#{word}%")
+      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
+    elsif search == "backward_match"
+      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","%#{word}")
+      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
+    elsif search == "partial_match"
+      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","%#{word}%")
+      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
     else
-      all
+      @vegetainable_review = VegetainableReview.all
     end
   end
+
+  # def self.looks(search, word)
+  #   if search == 'word'
+  #     where("shop_name LIKE ?", "%#{word}%")
+  #   elsif search == 'word'
+  #     where("farmer_name LIKE ?", "%#{word}%")
+  #   else
+  #     all
+  #   end
+  # end
 
 end

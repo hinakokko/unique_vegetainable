@@ -43,20 +43,6 @@ class User::VegetainableReviewsController < ApplicationController
     redirect_to vegetainable_reviews_path, notice: '★ レビューが１件削除されました！'
   end
 
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","#{word}")
-    elsif search == "forward_match"
-      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","#{word}%")
-    elsif search == "backward_match"
-      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","%#{word}")
-    elsif search == "partial_match"
-      @vegetainable_review = VegetainableReview.where("shop_name LIKE?","%#{word}%")
-    else
-      @vegetainable_review = VegetainableReview.all
-    end
-  end
-
   private
 
   def vegetainable_review_params

@@ -1,24 +1,40 @@
-<h2>Results index</h2>
-
-<table class="table table-hover table-inverse">
-  <!--検索対象モデルがUserの時 -->
-  <% if @range == "User" %>
-    <tbody>
-      <% @users.each do |user| %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mt-5">
+      <table class="table table-hover table-inverse">
+      <!--検索対象モデルがUserの時 -->
+    <% if @range == "User" %>
+      <tbody>
+        <% @users.each do |user| %>
         <tr>
           <td><%= user.name %></td>
         </tr>
-      <% end %>
-    </tbody>
+        <% end %>
+      </tbody>
   <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがVegetainable_reviewの時) -->
     <tbody>
+        <tr>
+         <th class="border border-3 p-2 text-center">アカウント名( ニックネーム )</th>
+         <th class="border border-3 p-2 text-center">購入先</th>
+         <th class="border border-3 p-2 text-center">農家</th>
+         <th class="border border-3 p-2 text-center">産地</th>
+         <th class="border border-3 p-2 text-center">購入した野菜</th>
+         <th class="border border-3 p-2 text-center"></th>
+        </tr>
       <% @vegetainable_reviews.each do |vegetainable_review| %>
         <tr>
-          <td><%= vegetainable_review.shop_name %></td>
-          <td><%= vegetainable_review.farmer_name %></td>
+          <td class="border border-3 p-2 text-center">@<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</td>
+          <td class="border border-3 p-2 text-center"><%= vegetainable_review.shop_name %></td>
+          <td class="border border-3 p-2 text-center"><%= vegetainable_review.farmer_name %></td>
+          <td class="border border-3 p-2 text-center"><%= vegetainable_review.area %></td>
+          <td class="border border-3 p-2 text-center"><%= vegetainable_review.name %></td>
+          <td class="border border-3 p-1 text-center"><%= image_tag vegetainable_review.image, size: "80x60" %></td>
         </tr>
       <% end %>
     </tbody>
   <% end %>
 </table>
+    </div>
+  </div>
+</div>
