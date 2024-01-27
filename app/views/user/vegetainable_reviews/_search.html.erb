@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <% if user_signed_in? %>
-  <div class="search_form">
+  <div class="search_form mb-3">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <tr>
-        <td><%= f.text_field :word %></td>
-        <td><%= f.select :range, options_for_select([["農家・購入先・産地・野菜","vegetainable_review"],["アカウント名","User"]]) %></td>
+        <td><%= f.text_field :word, class: "mb-2"%></td>
+        <td><%= f.select :range, options_for_select([["農家 or 購入先 or 産地 or 野菜","vegetainable_review"],["アカウント名 or ニックネーム or 会員ID","User"]]) %></td>
         <td><%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %></td>
-        <td><%= f.submit "検索", class: "btn btn-warning " %></td>
+        <td><%= f.submit "検索", class: "btn btn-warning ml-2 mt-2 " %></td>
       </tr>
     <% end %>
   </div>
