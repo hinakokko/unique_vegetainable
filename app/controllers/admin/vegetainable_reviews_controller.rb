@@ -18,7 +18,8 @@ class Admin::VegetainableReviewsController < ApplicationController
   def destroy
     @vegetainable_review = VegetainableReview.find(params[:id])
     @vegetainable_review.destroy
-    redirect_to admin_user_path
+    user = User.find(params[:user_id])
+    redirect_to admin_user_path(user.id), notice: '★ レビューが１件削除されました！'
   end
 
 

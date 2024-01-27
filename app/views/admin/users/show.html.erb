@@ -1,12 +1,18 @@
 <div class="container">
+  <div calss="row">
+    <div class="col-sm-12">
+        <p class="mb-6"><%= flash[:notice] %></p>
+    </div>
+  </div>   
+  
     <div class="row">
        <table>
-            <div class="mt-5 p-1 col-4">
+            <div class="mt-5 p-1 col-sm-7">
             <h5>@<%= @user.name %> ( <%= @user.nickname %> ) さんの会員詳細</h5>
             </div>
        </table>
-    </div>
-
+    </div>   
+       
   <div class="row">
     <div class="col-8">
      <body>
