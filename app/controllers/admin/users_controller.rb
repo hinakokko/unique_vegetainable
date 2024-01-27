@@ -24,6 +24,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
+    user.is_active = false if not params[:user][:is_active]
     user.update(user_params)
     redirect_to admin_users_path(user.id)
   end

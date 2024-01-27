@@ -35,6 +35,12 @@
               <td class="w-40 p-2"><label for="inputName">メールアドレス</label></td>
               <td class="pl-5"><%= f.text_field :email, autofocus: true, id:"@user", placeholder:"メールアドレス" %></td>
             </tr>
+
+            <tr>
+              <td class="w-40 p-2"><label for="inputName">有効</label></td>
+              <td class="pl-5"><%= f.check_box :is_active, {}, true, false %></td>
+            </tr>
+
         </table>
           <tr>
             <%= f.submit "変更を保存する", class: "btn btn-outline-warning p-2 mt-5 mb-4 ml-3" %>
