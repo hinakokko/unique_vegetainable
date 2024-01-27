@@ -1,13 +1,15 @@
 class User::UsersController < ApplicationController
 
   def index
-    @vegetainable_review = VegetainableReview.find(params.id)
+    @vegetainable_review = VegetainableReview.find(params[:id])
     @vegetainable_reviews = @user.vegetainable_review
   end
 
   def show
     @user = User.find(params[:id])
     @vegetainable_reviews = @user.vegetainable_reviews
+    # @vegetainable_reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).user.vegetainable_reviews : VegetainableReview.find(params.id)
+    @vegetainable_reviews = @vegetainable_reviews.page(params[:page])
     # @comment = Comment.new
     # @comments = Comments.find(params[:id])
     # @comment = @vegetainable_reviews.comment
@@ -16,6 +18,7 @@ class User::UsersController < ApplicationController
   def mypage
     @user = current_user
     @vegetainable_reviews = @user.vegetainable_reviews
+    @vegetainable_reviews = @vegetainable_reviews.page(params[:page])
   end
 
   def edit
