@@ -62,7 +62,10 @@
          </div>
       </body>
     </div>
-    <!-- user/usersのshow.html.erbと同じ「ユーザーの投稿一覧を表示している」 -->
+
+    <!-- 該当ユーザーの投稿一覧 -->
+    <!-- user/usersのshow.html.erbと部分テンプレートで表示 -->
+    <!-- 更新や修正はuser/usersの_mypage_show.html.erbで編集する  -->
     <div class="m-3">
         <%= render 'user/users/mypage_show.html.erb' %>
       </div>
