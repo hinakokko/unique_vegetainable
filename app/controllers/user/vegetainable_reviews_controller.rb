@@ -1,4 +1,5 @@
 class User::VegetainableReviewsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
 
   def index
     # @vegetainable_reviews = VegetainableReview.all
@@ -34,7 +35,7 @@ class User::VegetainableReviewsController < ApplicationController
   def update
     vegetainable_review = VegetainableReview.find(params[:id])
     vegetainable_review.update(vegetainable_review_params)
-    redirect_to vegetainable_review_path(vegetainable_review.id)
+    redirect_to vegetainable_review_path(@vegetainable_review.id)
   end
 
   def destroy
@@ -44,6 +45,13 @@ class User::VegetainableReviewsController < ApplicationController
   end
 
   private
+
+  def is_matching_login_user
+    vegetainable_review = VegetainableReview.find(params[:id])
+    unless vegetainable_review.user.id == current_user.id
+      redirect_to vegetainable_review_path(vegetainable_review.id)
+    end
+  end
 
   def vegetainable_review_params
     params.require(:vegetainable_review).permit(:title, :name, :price, :amount, :farmer_name, :user_id, :shop_name, :image, :caption, :area, tag_ids: [])
