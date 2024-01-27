@@ -5,6 +5,8 @@
         <p class="mb-5 h5"><%= flash[:notice] %></p>
       </div>
 
+      <%= render 'user/vegetainable_reviews/search' %>
+
       <%= form_tag vegetainable_reviews_path, method: :get, class: 'boards__searchForm' do %>
         <table>
         <%= select_tag :tag_id,

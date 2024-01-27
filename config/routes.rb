@@ -41,7 +41,7 @@ scope module: :user do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
   resource :favorite, only: [:create, :destroy]
-
+  get "search" => "searches#search"
   get 'users/my_page' => "users#mypage", as: 'my_page'
   get '/users/my_page/edit' => "users#edit", as: 'edit_my_page'
   patch '/users/my_page' => "users#update", as: 'update_my_page'

@@ -28,4 +28,14 @@ class VegetainableReview < ApplicationRecord
     end
   end
 
+  def self.looks(search, word)
+    if search == 'title'
+      where("shop_name LIKE ?", "%#{word}%")
+    elsif search == 'body'
+      where("farmer_name LIKE ?", "%#{word}%")
+    else
+      all
+    end
+  end
+
 end
