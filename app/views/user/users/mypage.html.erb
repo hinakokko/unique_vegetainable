@@ -62,47 +62,8 @@
          </div>
       </body>
     </div>
-    <div class="mt-2 mb-5 p-1 col-sm-12">
-        <h5>@<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿一覧</h5>
-    </div>
-</div>
-    <table>
-    <tbody class="col-12 mt-5">
-      <% @vegetainable_reviews.each do |vegetainable_review| %>
-         <tr>
-              <td>
-                <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
-                <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <th class="p-3">
-              <%= image_tag vegetainable_review.user.get_profile_image(80, 80) %>
-              @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</th>
-            </tr>
-        <tr>
-          <th class="p-3"><%= vegetainable_review.title %></th>
-        </tr>
-        <tr>
-          <td class="pt-1 pb-3 pl-3"><%= vegetainable_review.caption %></td>
-        </tr>
-        <tr>
-          <td class="p-3">農家：<%= vegetainable_review.farmer_name %><hr clas="pt-4"></td>
-        </tr>
-      <% end %>
-    </tbody>
-
-  </table>
-    <div class="col-sm-5 my-3">
-      <tr>
-      <%= link_to "<< 全レビュー投稿一覧へ戻る", vegetainable_reviews_path, class: "btn btn-outline-warning p-2 mr-4 mb-5" %>
-    </tr>
-    </div>
-    <div class="pl-3 m-4 pt-4 h5">
-    <tr>
-      <td><%= paginate @vegetainable_reviews %></td>
-    </tr>
-    </div>
-
+    <!-- user/usersのshow.html.erbと同じ「ユーザーの投稿一覧を表示している」 -->
+    <div class="m-3">
+        <%= render 'user/users/mypage_show.html.erb' %>
+      </div>
   </div>
