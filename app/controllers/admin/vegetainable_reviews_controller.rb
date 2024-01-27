@@ -18,7 +18,7 @@ class Admin::VegetainableReviewsController < ApplicationController
   def destroy
     @vegetainable_review = VegetainableReview.find(params[:id])
     @vegetainable_review.destroy
-    redirect_to admin_users_path
+    redirect_to admin_user_path
   end
 
 
