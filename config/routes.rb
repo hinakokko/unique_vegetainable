@@ -36,7 +36,6 @@ end
 
 scope module: :user do
   root to: 'homes#top'
-  resources :homes, only: [:show]
   resources :vegetainable_reviews, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
