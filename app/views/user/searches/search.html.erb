@@ -5,9 +5,16 @@
       <!--検索対象モデルがUserの時 -->
     <% if @range == "User" %>
       <tbody>
+        <tr>
+         <th class="border border-3 p-2 text-center">会員ID</th>
+         <th class="border border-3 p-2 text-center">アカウント名</th>
+         <th class="border border-3 p-2 text-center">ニックネーム</th>
+        </tr>
         <% @users.each do |user| %>
         <tr>
-          <td><%= user.name %></td>
+          <td class="border border-3 p-2 text-center"><%= user.id %></td>
+          <td class="border border-3 p-2 text-center">@<%= user.name %></td>
+          <td class="border border-3 p-2 text-center"><%= user.nickname %></td>
         </tr>
         <% end %>
       </tbody>

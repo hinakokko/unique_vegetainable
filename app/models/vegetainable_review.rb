@@ -31,24 +31,24 @@ class VegetainableReview < ApplicationRecord
   def self.looks(search, word)
     if search == "perfect_match"
       @vegetainable_review = VegetainableReview.where("shop_name LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("name LIKE?","#{word}")
     elsif search == "forward_match"
       @vegetainable_review = VegetainableReview.where("shop_name LIKE?","#{word}%")
-      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("name LIKE?","#{word}")
     elsif search == "backward_match"
       @vegetainable_review = VegetainableReview.where("shop_name LIKE?","%#{word}")
-      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("name LIKE?","#{word}")
     elsif search == "partial_match"
       @vegetainable_review = VegetainableReview.where("shop_name LIKE?","%#{word}%")
-      @vegetainable_review = VegetainableReview.where("farmer_name LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("area LIKE?","#{word}")
-      @vegetainable_review = VegetainableReview.where("name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("farmer_name LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("area LIKE?","#{word}")
+      @vegetainable_review += VegetainableReview.where("name LIKE?","#{word}")
     else
       @vegetainable_review = VegetainableReview.all
     end

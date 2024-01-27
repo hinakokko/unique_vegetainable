@@ -30,4 +30,26 @@ class User < ApplicationRecord
     end
   end
 
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @user = User.where("name LIKE?","#{word}")
+      @user += User.where("nickname LIKE?","#{word}")
+      @user += User.where("id LIKE?","#{word}")
+    elsif search == "forward_match"
+      @user = User.where("name LIKE?","#{word}")
+      @user += User.where("nickname LIKE?","#{word}")
+      @user += User.where("id LIKE?","#{word}")
+    elsif search == "backward_match"
+      @user = User.where("name LIKE?","#{word}")
+      @user += User.where("nickname LIKE?","#{word}")
+      @user += User.where("id LIKE?","#{word}")
+    elsif search == "partial_match"
+      @user = User.where("name LIKE?","#{word}")
+      @user += User.where("nickname LIKE?","#{word}")
+      @user += User.where("id LIKE?","#{word}")
+    else
+      @vegetainable_review = VegetainableReview.all
+    end
+  end
+
 end
