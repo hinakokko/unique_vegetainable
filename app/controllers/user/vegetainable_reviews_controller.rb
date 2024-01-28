@@ -41,7 +41,7 @@ class User::VegetainableReviewsController < ApplicationController
   def destroy
     @vegetainable_review = VegetainableReview.find(params[:id])
     @vegetainable_review.destroy
-    redirect_to vegetainable_reviews_path, notice: '★ レビューが１件削除されました！'
+    redirect_to vegetainable_reviews_path, notice: '★ １件削除されました！'
   end
 
   private

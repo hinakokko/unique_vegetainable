@@ -31,16 +31,19 @@
   <!--  </div>-->
 
   <div class="row">
-    <div class="col-sm-12 text-right pb-3 mt-2">
+    <div class="col-sm-12 text-left">
       <table>
       <tr>
-        <td><%= image_tag '372.jpg', class: 'hoge' , size: '100x100'%>
-        <%= link_to "ユニークベジティナブル", root_path, class: "border-1 rounded py-2 px-2 h3 btn-outline-success text-left" %>
-        <%= image_tag '371.jpg', class: 'hoge' , size: '100x100'%>
+        <td>
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.jpg', class: 'hoge' , size: '490x90'%>
+        <% end %>
         </td>
       </tr>
       </table>
+    </div>
 
+    <div class="col-sm-12 text-right pb-3 mt-2">
     <% if admin_signed_in? %>
       <tr>
         <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "p-1 px-2 m-3 btn btn-outline-warning" %></td>

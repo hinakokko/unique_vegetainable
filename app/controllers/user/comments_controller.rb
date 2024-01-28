@@ -8,6 +8,13 @@ class User::CommentsController < ApplicationController
     redirect_to vegetainable_review_path(vegetainable_review)
   end
 
+  def destroy
+    comment = current_user.comments
+    comment = Comment.find(params[:comment])
+    comment.destroy
+    redirect_to vegetainable_review_comment_path(vegetainable_review)
+  end
+
   private
 
   def comment_params
