@@ -9,12 +9,18 @@
          <th class="border border-3 p-2 text-center">会員ID</th>
          <th class="border border-3 p-2 text-center">アカウント名</th>
          <th class="border border-3 p-2 text-center">ニックネーム</th>
+         <th class="border border-3 p-2 text-center">プロフィール画像</th>
         </tr>
         <% @users.each do |user| %>
         <tr>
           <td class="border border-3 p-2 text-center"><%= user.id %></td>
-          <td class="border border-3 p-2 text-center">@<%= user.name %></td>
+          <td class="border border-3 p-2 text-center">
+            <%= link_to user_path(user.id) do %>
+              @<%= user.name %>
+            <% end %>
+          </td>
           <td class="border border-3 p-2 text-center"><%= user.nickname %></td>
+          <td class="border border-3 p-2 text-center"><%= image_tag user.get_profile_image(70, 70) %></td>
         </tr>
         <% end %>
       </tbody>
@@ -31,17 +37,30 @@
         </tr>
       <% @vegetainable_reviews.each do |vegetainable_review| %>
         <tr>
-          <td class="border border-3 p-2 text-center">@<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )</td>
+          <td class="border border-3 p-2 text-center">
+            <%= link_to user_path(vegetainable_review.user) do %>
+            @<%= vegetainable_review.user.name %> ( <%= vegetainable_review.user.nickname %> )
+            <% end %>
+          </td>
           <td class="border border-3 p-2 text-center"><%= vegetainable_review.shop_name %></td>
           <td class="border border-3 p-2 text-center"><%= vegetainable_review.farmer_name %></td>
           <td class="border border-3 p-2 text-center"><%= vegetainable_review.area %></td>
           <td class="border border-3 p-2 text-center"><%= vegetainable_review.name %></td>
-          <td class="border border-3 p-1 text-center"><%= image_tag vegetainable_review.image, size: "80x60" %></td>
+          <td class="border border-3 p-1 text-center">
+            <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
+              <%= image_tag vegetainable_review.image, size: "80x60" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   <% end %>
 </table>
+    </div>
+    <div class="col-sm-12 my-3 mt-4 text-right">
+      <tr>
+      <%= link_to "<< 全レビュー投稿一覧へ戻る", vegetainable_reviews_path, class: "btn btn-outline-warning p-2 mr-4 mb-5" %>
+    </tr>
     </div>
   </div>
 </div>
