@@ -24,11 +24,12 @@
 
   <table>
     <tbody class="col-sm-12 mt-5">
+
       <% @vegetainable_reviews.each do |vegetainable_review| %>
          <tr>
               <td>
                 <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
-                <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
+                  <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
                 <% end %>
               </td>
             </tr>

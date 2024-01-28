@@ -136,7 +136,7 @@
           <td><%= comment.content %></td>
           <td>
             <% if user_signed_in? && current_user.id %>
-              <%= button_to "削除する", vegetainable_review_comment_path(current_user.id), method: :delete %>
+              <%= button_to "削除する", vegetainable_review_comment_path(@vegetainable_review.id,comment.id), method: :delete %>
             <% end %>
           </td>
         </tr>

@@ -10,9 +10,9 @@ class User::CommentsController < ApplicationController
 
   def destroy
     comment = current_user.comments
-    comment = Comment.find(params[:comment])
+    comment = Comment.find(params[:id])
     comment.destroy
-    redirect_to vegetainable_review_comment_path(vegetainable_review)
+    redirect_back fallback_location: root_path
   end
 
   private

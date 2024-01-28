@@ -31,8 +31,15 @@
         <div class="col-3 mt-5 pt-4 mb-3">
             <tr>
               <td>
-                <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
-                <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
+                <%#= link_to vegetainable_review_path(vegetainable_review.id) do %>
+                <% if current_user %>
+                  <%= link_to vegetainable_review_path(vegetainable_review.id) do %>
+                  <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
+                  <% end %>
+                <% else %>
+                   <%= link_to admin_user_vegetainable_review_path(current_admin.id ,vegetainable_review.id) do %>
+                     <%= image_tag vegetainable_review.get_image(300, 200) if vegetainable_review.image.attached? %>
+                   <% end %>
                 <% end %>
               </td>
             </tr>
