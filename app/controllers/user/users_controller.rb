@@ -28,7 +28,7 @@ class User::UsersController < ApplicationController
   def update
     user = current_user
     user.update(user_params)
-    redirect_to my_page_path(user)
+    redirect_to my_page_path(user_params)
   end
 
   def withdraw_confirmation

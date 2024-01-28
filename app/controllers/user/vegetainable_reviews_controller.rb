@@ -35,7 +35,7 @@ class User::VegetainableReviewsController < ApplicationController
   def update
     vegetainable_review = VegetainableReview.find(params[:id])
     vegetainable_review.update(vegetainable_review_params)
-    redirect_to vegetainable_review_path(@vegetainable_review.id)
+    redirect_to vegetainable_review_path(vegetainable_review.id)
   end
 
   def destroy

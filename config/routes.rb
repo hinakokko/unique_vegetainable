@@ -32,6 +32,7 @@ namespace :admin do
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resources :vegetainable_reviews, only: [:show, :destroy]
   end
+  resources :comments, only: [:destroy]
 
 end
 

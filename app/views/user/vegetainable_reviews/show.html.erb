@@ -129,17 +129,22 @@
     <div class="col-sm-12">
       <p class="border-top p-3">コメント件数：<%= @vegetainable_review.comments.count %></p>
       <% @vegetainable_review.comments.each do |comment| %>
-        <p><%#= image_tag comment.user.get_profile_image(100,100) %></p>
+      <div class="col-sm-5">
         <tr>
-          <td>@<%= comment.user.name %>：</td>
+          <td><%= image_tag comment.user.get_profile_image(60,60) %> @<%= comment.user.name %>さん</td>
+        </tr>
+      </div>
+      <div class="col-sm-12">
+        <tr>
           <td><%= comment.created_at.strftime('%Y/%m/%d') %>：</td>
           <td><%= comment.content %></td>
           <td>
             <% if user_signed_in? && current_user.id %>
-              <%= button_to "削除する", vegetainable_review_comment_path(@vegetainable_review.id,comment.id), method: :delete %>
+              <%= button_to "削除する", vegetainable_review_comment_path(@vegetainable_review.id,comment.id), method: :delete, class: "mt-2 mb-4 btn btn-warning" %>
             <% end %>
           </td>
         </tr>
+      </div>
       <% end %>
 
       <%= form_with url: vegetainable_review_comments_path(@vegetainable_review.id), model: @comment do |f| %>
