@@ -16,13 +16,21 @@
   <div class="row">
     <div class="col-sm-12 text-left pt-2">
       <table>
+      <% if admin_signed_in? %>
       <tr>
         <td>
-        <%= link_to root_path do %>
+        <%= link_to admin_top_path do %>
           <%= image_tag 'logo.jpg', class: 'hoge' , size: '490x90'%>
         <% end %>
         </td>
       </tr>
+      <% elsif user_signed_in? %>
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.jpg', class: 'hoge' , size: '490x90'%>
+        <% end %>
+      <% else %>
+         <%= image_tag 'logo.jpg', class: 'hoge' , size: '490x90'%>
+      <% end %>
       </table>
     </div>
 

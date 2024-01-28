@@ -27,7 +27,8 @@ get 'users/destroy' => "users#delete"
   end
 
 namespace :admin do
-  root to: "homes#top"
+  root to: "homes#top", as: 'top'
+   get "homes/about" => "homes#about"
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resources :vegetainable_reviews, only: [:show, :destroy]
   end
