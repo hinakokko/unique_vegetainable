@@ -1,8 +1,8 @@
 <div clas="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
       <table class="m-1">
-      <h5 class="mt-5 p-1 col-sm-7">
+      <h5 class="mt-5 p-1 col-md-7">
         @<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿詳細</h5>
       </table>
     </div>
@@ -10,7 +10,7 @@
 
 <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
 <div class="row">
-  <div class="col-5">
+  <div class="col-md-5">
     <table class="m-1">
     <tr>
       <td class="pt-4 px-3">
@@ -27,7 +27,7 @@
 </div>
 
 <div class="row">
-  <div class="col-7 ml-4">
+  <div class="col-md-7 ml-4">
     <table>
       <td>
       <tr>
@@ -56,7 +56,7 @@
 
 
 <div class="row">
-  <div class="col-12">
+  <div class="col-md-12">
     <table class="m-1 mt-4">
       <tr>
          <th class="border border-3 p-3">購入した野菜</th>
@@ -80,7 +80,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-12 mt-3 mb-5">
+  <div class="col-md-12 mt-3 mb-5">
     <tr>
        <td><%= link_to "<< 会員詳細へ戻る", admin_user_path(@user), class: "btn btn-outline-warning p-2 mt-4 mb-5 mr-3" %></td>
     </tr>

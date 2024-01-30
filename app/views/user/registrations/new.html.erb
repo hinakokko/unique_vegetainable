@@ -1,8 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-2 mt-3">
-      <h5>初めての方へ<br>新規登録はこちら</h5>
+    <div class="col-md-12 mt-3">
+      <table>
+      <h5>初めての方へ</h5>
+      <h6>新規登録はこちら</h6>
+      </table>
     </div>
+  </div> 
+  <div class="row">
     <div class="col-7 mt-5">
       <%= form_with model: @user, url: user_registration_path do |f| %>
       <%= render "user/shared/error_messages", resource: resource %>
