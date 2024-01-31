@@ -24,12 +24,11 @@
         </tr>
         <% elsif user_signed_in? %>
           <%= link_to root_path do %>
-            <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
+            <%= image_tag 'logo.jpg', class: 'hoge' , size: '300x60'%>
           <% end %>
         <% else %>
            <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
         <% end %>
-
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,5 +75,8 @@
   </nav>
 </header>
 <%= yield %>
+<div class="mx-0 bg-warning py-1 text-center text-black">
+  <h6>@ユニークベジティナブル</h6>
+</div>
 </html>
 
