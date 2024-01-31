@@ -24,6 +24,11 @@
 <!--テーマを設定・提出する時点では不要です-->
 ​
 ## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9,EC2,RDS
 ​
 ## 使用素材
-使用検討中です
+Bootstrap
