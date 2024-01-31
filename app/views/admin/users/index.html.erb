@@ -1,37 +1,37 @@
 <div class="container">
     <div class="row">
        <table>
-            <div class="mt-5 p-1 text-center alert-secondary col-md-2 mb-3">
+            <div class="mt-5 p-1 text-center col-md-2 mb-3">
             <h5>会員一覧</h5>
             </div>
        </table>
     </div>
     <div class="row">
         <div class="col-md-12">
-        <table class="mt-3 w-100 text-left table table-striped">
+        <table class="mt-3 table table-striped">
             <tr>
-                <th class="pl-5 col-sm-1">会員ID</th>
-                <th class="col-sm-2 text-center nowrap">アカウント名</th>
-                <th class="col-sm-2 text-center">ニックネーム</th>
-                <th class="col-sm-2 text-center">メールアドレス</th>
-                <th class="col-sm-2 text-center">電話番号</th>
-                <th class="col-sm-2 text-center">会員登録日</th>
-                <th class="col-sm-2 text-center">会員ステータス</th>
+                <th class="col-md-1">会員ID</th>
+                <th class="col-md-2 text-center">アカウント名</th>
+                <th class="col-md-2 text-center">ニックネーム</th>
+                <th class="col-md-2 text-center">メールアドレス</th>
+                <th class="col-md-2 text-center">電話番号</th>
+                <th class="col-md-2 text-center">会員登録日</th>
+                <th class="col-md-2 text-center">会員ステータス</th>
             </tr>
         </table>
         </div>
 
         <% @users.each do |user| %>
         <div class="col-md-12">
-        <table class="mt-2 mb-2 w-100 text-left border-top col-md-12">
+        <table class="mt-2 mb-2 border-top col-md-12">
             <tr>
-                <td class="pl-5 pt-2 pb-2 col-sm-1"><%= user.id %></td>
-                <td class="col-sm-2 text-center"><%= link_to user.name, admin_user_path(user.id) %></td>
-                <td class="col-sm-2 text-center"><%= user.nickname %></td>
-                <td class="col-sm-2 text-center"><%= user.email %></td>
-                <td class="col-sm-2 text-center"><%= user.telephone_number %></td>
-                <td class="col-sm-2 text-center"><%= user.created_at.strftime('%Y/%m/%d') %></td>
-                <td class="col-sm-2 text-center"><%= user.is_active %></td>
+                <td class="pt-2 pb-2 col-md-1"><%= user.id %></td>
+                <td class="col-md-2 text-center"><%= link_to user.name, admin_user_path(user.id) %></td>
+                <td class="col-md-2 text-center"><%= user.nickname %></td>
+                <td class="col-md-2 text-center"><%= user.email %></td>
+                <td class="col-md-2 text-center"><%= user.telephone_number %></td>
+                <td class="col-md-2 text-center"><%= user.created_at.strftime('%Y/%m/%d') %></td>
+                <td class="col-md-2 text-center"><%= user.is_active %></td>
             </tr>
         </table>
         </div>

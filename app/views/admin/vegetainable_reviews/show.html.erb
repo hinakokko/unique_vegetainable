@@ -1,89 +1,83 @@
-<div clas="container">
+<div class="container">
   <div class="row">
     <div class="col-md-12">
-      <table class="m-1">
-      <h5 class="mt-5 p-1 col-md-7">
+      <table>
+      <h5 class="mt-5 col-md-7">
         @<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿詳細</h5>
       </table>
     </div>
   </div>
 
-<%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
-<div class="row">
-  <div class="col-md-5">
-    <table class="m-1">
-    <tr>
-      <td class="pt-4 px-3">
-          <!--画像-->
-          <% if @vegetainable_review.image.attached? %>
-          <%= image_tag @vegetainable_review.image, size: "400x350" %>
-          <% else %>
-          <%= image_tag 'no_image', size: "170x200" %>
-          <% end %>
-      </td>
-    </tr>
-    </table>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-7 ml-4">
-    <table>
-      <td>
+  <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
+  <div class="row">
+    <div class="col-md-5">
+      <table>
       <tr>
-          <td class="pt-2 pb-2 px-3"><h4><%= @vegetainable_review.title %></h4></td>
-      </tr>
-      <tr>
-          <th></th>
-      </tr>
-      <tr>
-          <td class="p-3"><%= @vegetainable_review.caption %></td>
-      </tr>
-      <tr>
-        <td class="p-4">
-        <% @vegetainable_review.tags.each do |tag| %>
-        # <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
-        <% end %>
+        <td class="pt-4">
+            <!--画像-->
+            <% if @vegetainable_review.image.attached? %>
+            <%= image_tag @vegetainable_review.image, size: "310x250" %>
+            <% else %>
+            <%= image_tag 'no_image', size: "170x200" %>
+            <% end %>
         </td>
       </tr>
-    </table>
+      </table>
+    </div>
   </div>
-</div>
 
-    </table>
+  <div class="row">
+    <div class="col-md-7">
+      <table>
+        <td>
+        <tr>
+            <td class="pt-2 pb-2"><h4><%= @vegetainable_review.title %></h4></td>
+        </tr>
+        <tr>
+            <th></th>
+        </tr>
+        <tr>
+            <td class="p-3"><%= @vegetainable_review.caption %></td>
+        </tr>
+        <tr>
+          <td class="p-4">
+          <% @vegetainable_review.tags.each do |tag| %>
+          # <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
+          <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="m-1 mt-4">
+        <tr>
+           <th class="border border-3 p-3">購入した野菜</th>
+           <th class="border border-3 p-3">産地</th>
+           <th class="border border-3 p-3">購入価格</th>
+           <th class="border border-3 p-3">個数</th>
+           <th class="border border-3 p-3">農家</th>
+           <th class="border border-3 p-3 w-40">購入先</th>
+        </tr>
+        <tr>
+          <td class="border border-3 p-3"><%= @vegetainable_review.name %></td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.area %></td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.price %>円</td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.amount %>個</td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.farmer_name %></td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.shop_name %></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
 
-
-<div class="row">
-  <div class="col-md-12">
-    <table class="m-1 mt-4">
+  <div class="row">
+    <div class="col-md-12 mt-3 mb-5">
       <tr>
-         <th class="border border-3 p-3">購入した野菜</th>
-         <th class="border border-3 p-3">産地</th>
-         <th class="border border-3 p-3">購入価格</th>
-         <th class="border border-3 p-3">個数</th>
-         <th class="border border-3 p-3">農家</th>
-         <th class="border border-3 p-3 w-40">購入先</th>
-      </tr>
-      <tr>
-        <td class="border border-3 p-3"><%= @vegetainable_review.name %></td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.area %></td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.price %>円</td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.amount %>個</td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.farmer_name %></td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.shop_name %></td>
+         <td><%= link_to "<< 会員詳細へ戻る", admin_user_path(@user), class: "btn btn-warning p-2 mt-4 mb-5" %></td>
       </tr>
     </div>
   </div>
-  </table>
-<% end %>
-
-<div class="row">
-  <div class="col-md-12 mt-3 mb-5">
-    <tr>
-       <td><%= link_to "<< 会員詳細へ戻る", admin_user_path(@user), class: "btn btn-warning p-2 mt-4 mb-5 mr-3" %></td>
-    </tr>
-  </div>
-</div>
 </div>

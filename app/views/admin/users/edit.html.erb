@@ -1,58 +1,57 @@
 <div class="container">
-    <div class="row">
-        <div class="mt-5 p-1 alert-secondary col-md-4 text-center">
-          <%= form_with model: @user, url: admin_user_path(@user) do |f| %>
-          <h5><%= @user.name %><%= @user.nickname %>さんの会員情報編集</h5>
-          <% end %>
-        </div>
+  <div class="row">
+    <div class="mt-5 p-1 col-md-4 text-center">
+      <%= form_with model: @user, url: admin_user_path(@user) do |f| %>
+      <h5><%= @user.name %><%= @user.nickname %>さんの会員情報編集</h5>
+      <% end %>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-12 mt-5">
-        <%= form_with model: @user, method: :patch, url: admin_user_path(@user) do |f| %>
-        <table>
-            <tr>
-              <td class="w-40 p-2">プロフィール画像</td>
-              <td class="pl-5"><%= f.file_field :profile_image, accept: "image/*", autofocus: true, id:"@user", placeholder:"プロフィール画像" %></td>
-            </tr>
-            <tr>
-              <td class="w-40 p-2"><label for="inputName">アカウント名</label></dr>
-              <td class="pl-5"><%= f.text_field :name, autofocus: true, id:"@user", placeholder:"アカウント名" %></td>
-            </tr>
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      <%= form_with model: @user, method: :patch, url: admin_user_path(@user) do |f| %>
+      <table>
+        <tr>
+          <td class="w-40">プロフィール画像</td>
+          <td class="pl-2"><%= f.file_field :profile_image, accept: "image/*", autofocus: true, id:"@user", placeholder:"プロフィール画像" %></td>
+        </tr>
+        <tr>
+          <td class="w-40"><label for="inputName">アカウント名</label></dr>
+          <td class="pl-2"><%= f.text_field :name, autofocus: true, id:"@user", placeholder:"アカウント名" %></td>
+        </tr>
 
-            <tr>
-              <td class="w-40 p-2"><label for="inputName">ニックネーム</label></td>
-              <td class="pl-5"><%= f.text_field :nickname, autofocus: true, id:"@user", placeholder:"ニックネーム" %></td>
-            </tr>
+        <tr>
+          <td class="w-40"><label for="inputName">ニックネーム</label></td>
+          <td class="pl-2"><%= f.text_field :nickname, autofocus: true, id:"@user", placeholder:"ニックネーム" %></td>
+        </tr>
 
-            <tr>
-              <td class="w-40 p-2"><label for="inputName">電話番号</label></td>
-              <td class="pl-5"><%= f.text_field :telephone_number, autofocus: true, id:"@user", placeholder:"電話番号" %></td>
-            </tr>
+        <tr>
+          <td class="w-40"><label for="inputName">電話番号</label></td>
+          <td class="pl-2"><%= f.text_field :telephone_number, autofocus: true, id:"@user", placeholder:"電話番号" %></td>
+        </tr>
 
-            <tr>
-              <td class="w-40 p-2"><label for="inputName">メールアドレス</label></td>
-              <td class="pl-5"><%= f.text_field :email, autofocus: true, id:"@user", placeholder:"メールアドレス" %></td>
-            </tr>
+        <tr>
+          <td class="w-40"><label for="inputName">メールアドレス</label></td>
+          <td class="pl-2"><%= f.text_field :email, autofocus: true, id:"@user", placeholder:"メールアドレス" %></td>
+        </tr>
 
-            <tr>
-              <td class="w-40 p-2"><label for="inputName">会員ステータス</label></td>
-              <td class="pl-5"><%= f.check_box :is_active, {}, true, false %></td>
-            </tr>
-
-        </table>
-            <tr>
-              <%= f.submit "変更を保存する", class: "btn btn-success p-2 mt-5 mb-4 ml-3" %>
-              <% end %>
-            </tr>
+        <tr>
+          <td class="w-40"><label for="inputName">会員ステータス</label></td>
+          <td class="pl-2"><%= f.check_box :is_active, {}, true, false %></td>
+        </tr>
+      </table>
+        <tr>
+          <%= f.submit "変更を保存する", class: "btn btn-success p-2 mt-5 mb-4 ml-3" %>
+          <% end %>
+        </tr>
       <div class="col-12 mt-2">
         <tr>
-          <%= link_to "<< 会員詳細へ戻る", admin_user_path(@user), class: "btn btn-warning p-2 mb-5 mr-3" %>
+          <%= link_to "<< 会員詳細へ戻る", admin_user_path(@user), class: "btn btn-warning p-2 mb-5" %>
         </tr>
         <tr>
-          <%= link_to "<< レビュー投稿詳細を見る", admin_user_vegetainable_review_path(@user), class: "btn btn-warning p-2 mr-4 mb-5" %>
+          <%= link_to "<< レビュー投稿詳細を見る", admin_user_vegetainable_review_path(@user), class: "btn btn-warning p-2 mb-5" %>
         </tr>
       </div>
-    <div>
+    </div>
+  </div>
 </div>
-
