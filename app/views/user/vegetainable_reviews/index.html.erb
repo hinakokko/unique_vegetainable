@@ -1,29 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-5 pt-5 ml-5">
+    <div class="col-md-3 pt-5 ml-5">
       <div>
         <p class="mb-5 h5"><%= flash[:notice] %></p>
       </div>
 
-      <div class="m-3">
-        <%= render 'user/vegetainable_reviews/search' %>
-      </div>
-
-      <div class="m-3">
+    <div class="col-md-2 mt-2">
       <%= form_tag vegetainable_reviews_path, method: :get, class: 'boards__searchForm' do %>
-        <table>
+      <table>
         <%= select_tag :tag_id,
                        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                        {
-                         prompt: '＃検索',
+                         prompt: '＃ハッシュタグ投稿を見る',
                          onchange: 'submit(this.form);'
                        }
         %>
-        </table>
+      </table>
       <% end %>
-      </div>
+    </div>
+    <div class="col-md-3 mt-4">
+    <%= render 'user/vegetainable_reviews/search' %>
     </div>
   </div>
+</div>
 
     <% @vegetainable_reviews.each do |vegetainable_review| %>
     <table>
@@ -65,7 +64,7 @@
               <tr>
                 <td>
                   <% if current_user.email != 'guest@example.com'%>
-                  <%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-outline-warning ml-4 mt-3"%>
+                  <%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-warning ml-4 mt-3"%>
                   <% end %>
                   </td>
               </tr>
