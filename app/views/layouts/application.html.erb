@@ -11,69 +11,70 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-5 text-left pt-5">
-      <table>
-      <% if admin_signed_in? %>
-      <tr>
-        <td>
-        <%= link_to admin_top_path do %>
-          <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
-        <% end %>
-        </td>
-      </tr>
-      <% elsif user_signed_in? %>
-        <%= link_to root_path do %>
-          <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
-        <% end %>
-      <% else %>
-         <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
-      <% end %>
-      </table>
-    </div>
-
-    <div class="col-md-12 text-right pb-3 mt-2">
-    <% if admin_signed_in? %>
-      <tr>
-        <td> <%= link_to "ユーザーの一覧", admin_users_path, class: "p-1 px-2 m-3 btn btn-warning" %></td>
-      </tr>
-      <tr>
-        <td><h6><%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "p-1 px-2 m-3 btn btn-secondary" %></td>
-      </tr>
-    <% elsif user_signed_in? %>
-      <tr>
-        <td><%= link_to 'マイページ', my_page_path, class: "p-1 px-2 m-1 btn btn-success" %></td>
-      </tr>
-      <tr>
-        <td><%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "p-1 px-2 m-1 btn btn-warning" %></td>
-      </tr>
-      <tr>
-        <td>
-          <% if current_user.email != 'guest@example.com'%>
-          <%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "p-1 px-2 m-1 btn btn-warning" %>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+    <div class="container">
+        <% if admin_signed_in? %>
+        <tr>
+          <td>
+          <%= link_to admin_top_path do %>
+            <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
           <% end %>
           </td>
-      </tr>
-      <tr>
-        <td><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-1 px-2 m-1 btn btn-secondary" %></td>
-      </tr>
-    <% else %>
-      <tr>
-        <td><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "p-1 px-2 m-3 btn btn-warning" %></td>
-      </tr>
-      <tr>
-        <td><%= link_to "新規登録", new_user_registration_path, class: "p-1 px-2 m-3 btn btn-success" %></td>
-      </tr>
-      <tr>
-        <td><%= link_to "ログイン", new_user_session_path, class: "p-1 px-2 m-3 btn btn-success" %></td>
-      </tr>
-    <% end %>
+        </tr>
+        <% elsif user_signed_in? %>
+          <%= link_to root_path do %>
+            <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
+          <% end %>
+        <% else %>
+           <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
+        <% end %>
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+          <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+              <li>
+                <%= link_to "ユーザーの一覧", admin_users_path, class: "p-1 m-3 btn btn-success" %>
+              </li>
+              <li>
+                <h6><%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "p-1 px-2 m-3 btn btn-secondary" %></h6>
+              </li>
+            <% elsif user_signed_in? %>
+              <li>
+                <%= link_to 'マイページ', my_page_path, class: "p-1 px-2 m-1 btn btn-success" %>
+              </li>
+              <li>
+                <%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "p-1 px-2 m-1 btn btn-success text-right " %>
+              </li>
+              <li>
+                  <% if current_user.email != 'guest@example.com'%>
+                  <%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "p-1 px-2 m-1 btn btn-success text-right " %>
+                  <% end %>
+              </li>
+              <li>
+                <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-1 px-2 m-1 btn btn-secondary text-right " %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "p-1 px-2 m-3 btn btn-success" %>
+              </li>
+              <li>
+                <%= link_to "新規登録", new_user_registration_path, class: "p-1 px-2 m-3 btn btn-success" %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_user_session_path, class: "p-1 px-2 m-3 btn btn-success" %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
     </div>
-    <%= yield %>
-
-  　</div>
-  </div>
-</div>
-
+  </nav>
+</header>
+<%= yield %>
 </html>
+
