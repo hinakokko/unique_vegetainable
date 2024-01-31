@@ -1,161 +1,149 @@
-<div clas="container">
-  <!--<div class="row">-->
-  <!--  <div class="col-12">-->
-  <!--    <table class="m-1">-->
-  <!--    <h4 class="mx-auto mb-10 ml-5 alert-secondary p-2 text-center mt-5">レビュー投稿詳細</h4>-->
-  <!--    </table>-->
-  <!--  </div>-->
-  <!--</div>-->
+<div class="container">
   <div calss="row">
     <div class="col-md-12">
         <p class="mb-6"><%= flash[:notice] %></p>
     </div>
   </div>
 
-<%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
-<div class="row">
-  <div class="col-md-5">
-    <table class="m-1">
-    <tr>
-       <th class="pl-4 pt-3 h5">
-         <%= image_tag @vegetainable_review.user.get_profile_image(80, 80) %>
-         @<%= @vegetainable_review.user.name %> ( <%= @vegetainable_review.user.nickname %> )</th>
-    </tr>
-    <tr>
-      <td class="pt-4 px-3">
-          <!--画像-->
-          <% if @vegetainable_review.image.attached? %>
-          <%= image_tag @vegetainable_review.image, size: "400x350" %>
-          <% else %>
-          <%= image_tag 'no_image', size: "170x200" %>
-          <% end %>
-        <!--いいね機能-->
-        <% if @vegetainable_review.favorited_by?(current_user) %>
-          <p class="p-3 text-right">
-            <%= link_to favorite_path(@vegetainable_review), method: :delete do %>
-            ♥ <%= @vegetainable_review.favorites.count %> いいね
-          <% end %>
-          </p>
-          <% else %>
-          <p class="p-3 text-right">
-            <%= link_to favorite_path(@vegetainable_review), method: :post do %>
-            ♡ <%= @vegetainable_review.favorites.count %> いいね
-          <% end %>
-          </p>
-        <% end %>
-      </td>
-    </tr>
-    </table>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-7 ml-4">
-    <table>
+  <%= form_with model: @vegetainable_review, method: :patch, url: vegetainable_review_path do |f| %>
+  <div class="row">
+    <div class="col-md-5">
+      <table>
       <tr>
-          <td class="pt-2 pb-2 px-3"><h4><%= @vegetainable_review.title %></h4></td>
+         <th class="pt-3 h5">
+           <%= image_tag @vegetainable_review.user.get_profile_image(80, 80) %>
+           @<%= @vegetainable_review.user.name %> ( <%= @vegetainable_review.user.nickname %> )</th>
       </tr>
       <tr>
-          <th></th>
-      </tr>
-      <tr>
-          <td class="p-3"><%= @vegetainable_review.caption %></td>
-      </tr>
-      <tr>
-        <td class="p-4">
-        <% @vegetainable_review.tags.each do |tag| %>
-        # <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
-        <% end %>
+        <td class="pt-4">
+            <!--画像-->
+            <% if @vegetainable_review.image.attached? %>
+            <%= image_tag @vegetainable_review.image, size: "310x260" %>
+            <% else %>
+            <%= image_tag 'no_image', size: "170x200" %>
+            <% end %>
+          <!--いいね機能-->
+          <% if @vegetainable_review.favorited_by?(current_user) %>
+            <p class="text-right">
+              <%= link_to favorite_path(@vegetainable_review), method: :delete do %>
+              ♥ <%= @vegetainable_review.favorites.count %> いいね
+            <% end %>
+            </p>
+            <% else %>
+            <p class="text-right">
+              <%= link_to favorite_path(@vegetainable_review), method: :post do %>
+              ♡ <%= @vegetainable_review.favorites.count %> いいね
+            <% end %>
+            </p>
+          <% end %>
         </td>
       </tr>
-    </table>
-  </div>
-</div>
-
-    </table>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-sm-12">
-    <table class="m-1 mt-4">
-      <tr>
-         <th class="border border-3 p-3">購入した野菜</th>
-         <th class="border border-3 p-3">産地</th>
-         <th class="border border-3 p-3">購入価格</th>
-         <th class="border border-3 p-3">個数</th>
-         <th class="border border-3 p-3">農家</th>
-         <th class="border border-3 p-3 w-40">購入先</th>
-      </tr>
-      <tr>
-        <td class="border border-3 p-3"><%= @vegetainable_review.name %></td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.area %></td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.price %>円</td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.amount %>個</td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.farmer_name %></td>
-        <td class="border border-3 p-3"><%= @vegetainable_review.shop_name %></td>
-      </tr>
+      </table>
     </div>
   </div>
-  </table>
 
-<% if current_user.email != 'guest@example.com'%>
-<div class="row">
-  <div class="col-md-12 mt-3">
-    <tr>
-      <td><%= link_to "レビューを編集する", edit_vegetainable_review_path, class: "btn btn-success pt-2 mt-4"%></td>
-    </tr>
-    </div>
-  </div>
   <div class="row">
-    <div class="col-md-12 mt-3">
-    <tr>
-      <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-warning p-2 mt-4"%></td>
-    </tr>
+    <div class="col-md-7">
+      <table>
+        <tr>
+            <td class="pt-2 pb-2"><h4><%= @vegetainable_review.title %></h4></td>
+        </tr>
+        <tr>
+            <th></th>
+        </tr>
+        <tr>
+            <td class="p-3"><%= @vegetainable_review.caption %></td>
+        </tr>
+        <tr>
+          <td class="p-4">
+          <% @vegetainable_review.tags.each do |tag| %>
+          # <%= link_to tag.name,vegetainable_reviews_path(tag_id: tag.id) %>
+          <% end %>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
-<% end %>
-<div class="row">
-  <div class="col-md-12 mt-3 mb-5">
-    <tr>
-       <td><%= link_to "<< レビューの一覧へ戻る", vegetainable_reviews_path, class: "btn btn-warning p-2 mt-4"%></td>
-        <% if @vegetainable_review.user == current_user %>
-          <%= link_to "削除", vegetainable_review_path(@vegetainable_review), method: :delete, class: "btn btn-outline-warning p-2 ml-4 mt-4", data: { confirm: '本当に削除しますか？' }  %>
-        <% end %>
-       </td>
-    </tr>
-  </div>
-</div>
-<% end %>
 
   <div class="row">
     <div class="col-md-12">
-      <p class="border-top p-3">コメント件数：<%= @vegetainable_review.comments.count %></p>
-      <% @vegetainable_review.comments.each do |comment| %>
-      <div class="col-sm-5">
+      <table class="m-1 mt-4">
         <tr>
-          <td><%= image_tag comment.user.get_profile_image(60,60) %> @<%= comment.user.name %>さん</td>
+           <th class="border border-3 p-3">購入した野菜</th>
+           <th class="border border-3 p-3">産地</th>
+           <th class="border border-3 p-3">購入価格</th>
+           <th class="border border-3 p-3">個数</th>
+           <th class="border border-3 p-3">農家</th>
+           <th class="border border-3 p-3 w-40">購入先</th>
         </tr>
-      </div>
-      <div class="col-sm-12">
         <tr>
-          <td><%= comment.created_at.strftime('%Y/%m/%d') %>：</td>
-          <td><%= comment.content %></td>
-          <td>
-            <% if user_signed_in? && current_user.id %>
-              <%= button_to "削除する", vegetainable_review_comment_path(@vegetainable_review.id,comment.id), method: :delete, class: "mt-2 mb-4 btn btn-secondary" %>
-            <% end %>
-          </td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.name %></td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.area %></td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.price %>円</td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.amount %>個</td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.farmer_name %></td>
+          <td class="border border-3 p-3"><%= @vegetainable_review.shop_name %></td>
         </tr>
+        </table>
       </div>
-      <% end %>
-
-      <%= form_with url: vegetainable_review_comments_path(@vegetainable_review.id), model: @comment do |f| %>
-        <%= f.text_area :content, rows: '5', placeholder: "コメントはこちらへ", class: "mt-4 px-5" %>
-        <%= f.submit "送信する", class: "btn btn-warning p-2 mt-4 mb-5" %>
-      <% end %>
     </div>
 
+  <% if current_user.email != 'guest@example.com'%>
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      <tr>
+        <td><%= link_to "レビューを編集する", edit_vegetainable_review_path, class: "btn btn-success pt-2 mt-4"%></td>
+      </tr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mt-3">
+      <tr>
+        <td><%= link_to "もう一度レビューを投稿する", new_vegetainable_review_path, class: "btn btn-warning p-2 mt-4"%></td>
+      </tr>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-12 mt-3 mb-5">
+      <tr>
+         <td><%= link_to "<< レビューの一覧へ戻る", vegetainable_reviews_path, class: "btn btn-warning p-2 mt-4"%></td>
+          <% if @vegetainable_review.user == current_user %>
+            <%= link_to "削除", vegetainable_review_path(@vegetainable_review), method: :delete, class: "btn btn-outline-warning p-2 ml-4 mt-4", data: { confirm: '本当に削除しますか？' }  %>
+          <% end %>
+         </td>
+      </tr>
+    </div>
   </div>
+  <% end %>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="border-top p-3">コメント件数：<%= @vegetainable_review.comments.count %></p>
+        <% @vegetainable_review.comments.each do |comment| %>
+        </div>
+        <div class="col-md-5">
+          <tr>
+            <td><%= image_tag comment.user.get_profile_image(60,60) %> @<%= comment.user.name %>さん</td>
+          </tr>
+        </div>
+        <div class="col-md-12">
+          <tr>
+            <td><%= comment.created_at.strftime('%Y/%m/%d') %>：</td>
+            <td><%= comment.content %></td>
+            <td>
+              <% if user_signed_in? && current_user.id %>
+                <%= button_to "削除する", vegetainable_review_comment_path(@vegetainable_review.id,comment.id), method: :delete, class: "mt-2 mb-4 btn btn-secondary" %>
+              <% end %>
+            </td>
+          </tr>
+        </div>
+        <% end %>
+        <div class="col-md-12">
+        <%= form_with url: vegetainable_review_comments_path(@vegetainable_review.id), model: @comment do |f| %>
+          <%= f.text_area :content, rows: '5', placeholder: "コメントはこちらへ", class: "mt-4 px-5" %>
+          <%= f.submit "送信する", class: "btn btn-warning p-2 mt-4 mb-5" %>
+        <% end %>
+      </div>
+    </div>
 </div>

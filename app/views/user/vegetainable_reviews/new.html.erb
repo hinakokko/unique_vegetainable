@@ -49,27 +49,27 @@
       <p>レビュー記入欄</p>
       <%= f.text_area :caption, placeholder:"*入力必須", class:"p-2 w-100 mb-4" %>
     </div>
-
+  </div>
   <div class="row">
-  <div class="col-md-12 m-3">
-    <p>＃ハッシュタグ登録</p>
-    <div class="check_box p-3 w-50 border mt-4 mb-5">
-      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-         <%= tag.label do %>
-           <%= tag.check_box %>
-           <%= tag.text %>
-         <% end %>
-     <% end %>
-     </div>
-     <tr>
-       <td>
-         <%= f.submit 'レビューを投稿する', class: "btn btn-success p-2 mt-2 mb-5" %>
-       </td>
-     </tr>
-     <tr>
-       <td><%= link_to " << レビューの一覧へ戻る", vegetainable_reviews_path, class: "btn btn-warning p-2 mr-4 mt-2 mb-5"%></td>
-     </tr>
+    <div class="col-md-12 m-3">
+      <p>＃ハッシュタグ登録</p>
+      <div class="check_box p-3 w-50 border mt-4 mb-5">
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+           <%= tag.label do %>
+             <%= tag.check_box %>
+             <%= tag.text %>
+           <% end %>
+       <% end %>
+       </div>
+       <tr>
+         <td>
+           <%= f.submit 'レビューを投稿する', class: "btn btn-success p-2 mt-2 mb-5" %>
+         </td>
+       </tr>
+       <tr>
+         <td><%= link_to " << レビューの一覧へ戻る", vegetainable_reviews_path, class: "btn btn-warning p-2 mr-4 mt-2 mb-5"%></td>
+       </tr>
+    </div>
   </div>
-  </div>
-   <% end %>
+  <% end %>
 </div>
