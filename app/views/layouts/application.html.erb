@@ -18,16 +18,16 @@
         <tr>
           <td>
           <%= link_to admin_top_path do %>
-            <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
+            <%= image_tag 'logo.jpg', class: 'hoge' , size: '340x60'%>
           <% end %>
           </td>
         </tr>
         <% elsif user_signed_in? %>
           <%= link_to root_path do %>
-            <%= image_tag 'logo.jpg', class: 'hoge' , size: '300x60'%>
+            <%= image_tag 'logo.jpg', class: 'hoge' , size: '340x60'%>
           <% end %>
         <% else %>
-           <%= image_tag 'logo.jpg', class: 'hoge' , size: '370x60'%>
+           <%= image_tag 'logo.jpg', class: 'hoge' , size: '340x60'%>
         <% end %>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
