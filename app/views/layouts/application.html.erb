@@ -45,7 +45,9 @@
               </li>
             <% elsif user_signed_in? %>
               <li>
+                <% if current_user.email != 'guest@vegetainable.com'%>
                 <%= link_to 'マイページ', my_page_path, class: "p-1 px-2 m-1 btn btn-success" %>
+                <% end %>
               </li>
               <li>
                 <%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "p-1 px-2 m-1 btn btn-success text-right " %>
