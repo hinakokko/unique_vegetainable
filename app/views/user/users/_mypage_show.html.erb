@@ -1,6 +1,7 @@
 <!-- user/usersのmypage.html.erbとshow.html.erbの部分テンプレート  -->
 <!-- 「該当のユーザー投稿一覧画面」の更新や修正はここで行う　-->
 <div class="container">
+  <% if current_user.email != 'guest@vegetainable.com'%>
        <div class="row">
             <div class="mt-5 p-1 col-sm-12">
             <h5>@<%= @user.name %> ( <%= @user.nickname %> ) さんのレビュー投稿一覧</h5>
@@ -60,5 +61,5 @@
       <%= link_to "<< 全レビュー投稿一覧へ戻る", vegetainable_reviews_path, class: "btn btn-warning p-2 mr-4 mb-5" %>
     </tr>
     </div>
-
+<% end %>
 </div>

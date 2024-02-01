@@ -9,7 +9,7 @@
 
   <div class="row">
     <div class="col-sm-8">
-       <% if @user.email != 'guest@example.com'%>
+       <% if @user.email != 'guest@vegetainable.com'%>
         <table class="mt-5 col-md-6 text-center border">
             <tr>
               <th class="py-2 border">プロフィール画像</th>
@@ -48,7 +48,7 @@
 
          <div class="mt-3 p-5 col-sm-11">
           <tr>
-            <% if @user.email != 'guest@example.com'%>
+            <% if @user.email != 'guest@vegetainable.com'%>
             <%= link_to "編集する", edit_my_page_path(@user), class: "btn btn-success p-2 mr-4 mb-5" %>
             <% end %>
           </tr>

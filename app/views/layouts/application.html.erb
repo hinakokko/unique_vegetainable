@@ -51,7 +51,7 @@
                 <%= link_to 'レビューの一覧', vegetainable_reviews_path, class: "p-1 px-2 m-1 btn btn-success text-right " %>
               </li>
               <li>
-                  <% if current_user.email != 'guest@example.com'%>
+                  <% if current_user.email != 'guest@vegetainable.com'%>
                   <%= link_to 'レビュー投稿フォーム', new_vegetainable_review_path, class: "p-1 px-2 m-1 btn btn-success text-right " %>
                   <% end %>
               </li>
